@@ -8,58 +8,233 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Mobile & Global Fixes */
+    /* ----------------------------------------------------------- */
+    /* MOBILE VIEW & RESUME FIXES ONLY (ITO LANG ANG DINAGDAG)     */
+    /* ----------------------------------------------------------- */
+
+    /* Siguraduhin na hindi lumalampas ang content sa mobile */
     * { box-sizing: border-box; }
     body { overflow-x: hidden; width: 100%; }
     img { max-width: 100%; height: auto; }
 
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .project-modal {
-      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8);
-      z-index: 2000; align-items: center; justify-content: center; padding: 20px;
-    }
-    .project-modal.active { display: flex; }
-    .modal-content {
-      background: #fff; border-radius: 12px; width: 100%; max-width: 500px;
-      max-height: 90vh; overflow-y: auto; position: relative;
-    }
-
-    /* Resume Section Mobile Fix */
+    /* Responsive Resume Layout */
     .resume-layout {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 30px;
     }
-
-    .resume-download-wrap {
-      text-align: center;
-      margin-top: 40px;
-      padding-bottom: 50px;
+    .resume-col {
+      flex: 1;
+      min-width: 300px; /* Mag-stack sa mobile kapag maliit ang screen */
     }
 
-    .btn-primary {
-      display: inline-block;
-      padding: 15px 30px;
+    /* Resume Download Button Styling */
+    .resume-download-wrap {
+      text-align: center;
+      margin-top: 48px;
+      padding-bottom: 40px;
+    }
+    .btn-download-resume {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 32px;
       background-color: #4f46e5; /* Indigo */
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: 0.3s;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
     }
-    .btn-primary:hover { background-color: #4338ca; }
+    .btn-download-resume:hover {
+      background-color: #4338ca;
+      transform: translateY(-3px);
+    }
 
+    /* Mobile specific adjustments */
     @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; }
       .hero-name { font-size: 3rem; }
+      .about-grid { grid-template-columns: 1fr; }
       .filter-bar { display: flex; overflow-x: auto; padding-bottom: 10px; gap: 10px; }
       .filter-btn { white-space: nowrap; }
+    }
+    /* ----------------------------------------------------------- */
+
+    .project-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .project-modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      max-height: 95vh;
+      overflow: visible;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: #6B7280;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .modal-close:hover {
+      color: #1F2937;
+    }
+    .modal-title {
+      padding: 20px 24px 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .modal-embed {
+      width: 100%;
+      padding: 0;
+    }
+    .modal-embed iframe {
+      width: 100%;
+      height: 85vh;
+      border: none;
+      display: block;
+    }
+    /* Gallery Modal */
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 2000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .gallery-modal.active {
+      display: flex;
+    }
+    .gallery-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .gallery-title {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .gallery-counter {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+    }
+    .gallery-img-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 900px;
+      flex: 1;
+    }
+    .gallery-img-wrap img {
+      max-width: 100%;
+      max-height: 70vh;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    .gallery-caption {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+      margin-top: 12px;
+      text-align: center;
+    }
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .gallery-nav:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .gallery-prev { left: -60px; }
+    .gallery-next { right: -60px; }
+    /* Video Modal */
+    .video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .video-modal.active {
+      display: flex;
+    }
+    .video-modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+    }
+    .video-modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+    .video-modal-title {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .video-modal-content video {
+      width: 100%;
+      border-radius: 12px;
+      background: #000;
+    }
+    @media (max-width: 600px) {
+      .gallery-prev { left: 8px; }
+      .gallery-next { right: 8px; }
     }
   </style>
 </head>
@@ -77,18 +252,18 @@
         <li><a href="#blog">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="hamburger" id="hamburger">
+      <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
         <span></span><span></span><span></span>
       </div>
     </div>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact">Contact</a>
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#projects" class="mobile-nav-link">Projects</a>
+    <a href="#resume" class="mobile-nav-link">Resume</a>
+    <a href="#blog" class="mobile-nav-link">Blog</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
   </div>
 
   <section id="hero">
@@ -103,12 +278,49 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-photo-wrap fade-up">
-          <img src="jea-photo.png" alt="Jea Edrieza">
+          <img src="jea-photo.png" alt="Jea Edrieza" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="about-content">
-          <h2 class="fade-up">Hey, I'm Jea 👋</h2>
-          <p class="fade-up">I'm a <strong>BSIT graduate</strong> based in the Philippines with a deep passion for <strong>UI/UX Design and visual storytelling</strong>.</p>
+          <h2 class="fade-up fade-up-delay-1">Hey, I'm Jea 👋</h2>
+          <p class="fade-up fade-up-delay-2">I'm a <strong>BSIT graduate</strong> based in the Philippines with a deep passion for <strong>UI/UX Design and visual storytelling</strong>. I love turning ideas into intuitive, beautiful digital experiences — from interfaces that feel effortless to videos that move people. I believe great design is invisible — it just works, and it makes you feel something.</p>
+          <p class="fade-up fade-up-delay-2">I've been exploring <strong>graphic design, video editing, and brand identity</strong> through school projects and personal work — and I'm just getting started. Every poster, every edit, every logo is a chance to grow. I'm not where I want to be yet, but I show up, I learn fast, and I bring heart to everything I create.</p>
+          <p class="fade-up fade-up-delay-3">My goal? To become a <strong>UI/UX Designer</strong> who builds things that truly help people. I'm drawn to design that <em>communicates</em>, not just decorates — and I'm investing every day into getting better. If you're looking for someone hungry to learn and ready to create.</p>
+          <div class="fade-up fade-up-delay-3">
+            <p class="skills-label">Disciplines</p>
+            <div class="skills-tags">
+              <span class="skill-tag indigo">UI/UX Design</span>
+              <span class="skill-tag indigo">Video Editing</span>
+              <span class="skill-tag indigo">Poster Design</span>
+              <span class="skill-tag indigo">Logo Design</span>
+              <span class="skill-tag indigo">Brand Identity</span>
+              <span class="skill-tag indigo">Event Stationery</span>
+            </div>
+            <p class="skills-label">Tools & Software</p>
+            <div class="skills-tags">
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">Adobe Premiere Pro</span>
+              <span class="skill-tag">Adobe Illustrator</span>
+              <span class="skill-tag">Canva</span>
+              <span class="skill-tag">DaVinci Resolve</span>
+              <span class="skill-tag">Capcut</span>
+              <span class="skill-tag">Atom</span>
+              <span class="skill-tag">Visual Studio</span>
+              <span class="skill-tag">Ms 365</span>
+            </div>
+            <p class="skills-label">Interests</p>
+            <div class="skills-tags">
+              <span class="skill-tag">Sketching</span>
+              <span class="skill-tag">Songwriting & Poetry</span>
+              <span class="skill-tag">Singing</span>
+              <span class="skill-tag">UI/UX Design</span>
+              <span class="skill-tag">Making a Story</span>
+            </div>
+            <p class="skills-label">Languages</p>
+            <div class="skills-tags">
+              <span class="skill-tag">English — Upper Intermediate (B2)</span>
+            </div>
           </div>
+        </div>
       </div>
     </div>
   </section>
@@ -116,61 +328,427 @@
   <section id="projects">
     <div class="container">
       <p class="section-title fade-up">My Work</p>
-      <div class="filter-bar fade-up">
+      <p class="section-subtitle fade-up fade-up-delay-1">A selection of projects across design and video.</p>
+      <div class="filter-bar fade-up fade-up-delay-2">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="capstone">Capstone</button>
-        <button class="filter-btn" data-filter="uiux">UI/UX</button>
-        <button class="filter-btn" data-filter="video">Video</button>
-        <button class="filter-btn" data-filter="poster">Poster</button>
+        <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+        <button class="filter-btn" data-filter="video">Video Editing</button>
+        <button class="filter-btn" data-filter="poster">Poster Design</button>
+        <button class="filter-btn" data-filter="logo">Logo Design</button>
         <button class="filter-btn" data-filter="stationery">Stationery</button>
       </div>
       <div class="projects-grid" id="projectsGrid">
-         </div>
-    </div>
+
+        <div class="project-card fade-up" data-category="stationery">
+          <div class="project-thumb" style="background: url('birthday-tags.jpg'); background-size: cover; background-position: center;">
+            <div class="project-overlay"><span>View Birthday Tags</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Souvenir & Graphic Design</p>
+            <p class="project-title">80th Birthday — Thank You Tags</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" data-category="stationery">
+          <div class="project-thumb" style="background: url('certificate-star.jpg'); background-size: cover; background-position: center;">
+            <div class="project-overlay"><span>View Certificate</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Branding & Event Stationery</p>
+            <p class="project-title">Star Award Certificate — Sariaya Institute</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" data-category="stationery">
+          <div class="project-thumb" style="background: url('golden-invitation.jpg'); background-size: cover; background-position: center;">
+            <div class="project-overlay"><span>View Invitation Design</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Event Invitation — Sariaya Institute</p>
+            <p class="project-title">50th Golden Anniversary — Memories to Hold</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" data-category="stationery">
+          <div class="project-thumb" style="background: url('certificate-philanthropy.jpg'); background-size: cover; background-position: center;">
+            <div class="project-overlay"><span>View Certificate</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Stationery Design — Recognition</p>
+            <p class="project-title">Philanthropy Award — 50th Golden Celebration</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" data-category="stationery">
+          <div class="project-thumb" style="background: url('golden-programme.jpg'); background-size: cover; background-position: center;">
+            <div class="project-overlay"><span>View Programme Design</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Event Stationery — Programme Guide</p>
+            <p class="project-title">50th Anniversary — Programme of Activities</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" data-category="stationery">
+          <div class="project-thumb" style="background: url('anniversary-tags.jpg'); background-size: cover; background-position: center;">
+            <div class="project-overlay"><span>View Anniversary Tags</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Branding & Souvenir Design</p>
+            <p class="project-title">Sariaya Institute — Golden Celebration Tags</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" data-category="stationery">
+          <div class="project-thumb" style="background: url('table-reservation.jpg'); background-size: cover; background-position: center;">
+            <div class="project-overlay"><span>View Table Card</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Event Stationery — Special Events</p>
+            <p class="project-title">Floral Table Reservation Card Design</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" data-category="poster">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #BAE6FD, #60A5FA);">
+            <div class="project-thumb-icon"><i class="fa-solid fa-quote-left"></i></div>
+            <div class="project-overlay"><span>View Quote Design</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Graphic Design — Social Media</p>
+            <p class="project-title">QTech Quote #4 — Fixing/Solving</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" data-category="poster">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #DCFCE7, #86EFAC);">
+            <div class="project-thumb-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="project-overlay"><span>View Event Poster</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Event Poster — Community</p>
+            <p class="project-title">Tayabense Get Together 2024</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" data-category="poster">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #F3F4F6, #D1D5DB);">
+            <div class="project-thumb-icon"><i class="fa-solid fa-sun"></i></div>
+            <div class="project-overlay"><span>View Event Poster</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Event Branding — Annual Picnic</p>
+            <p class="project-title">2024 Tayabense Annual Picnic</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" data-category="capstone">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #FEF3C7, #FDE68A);">
+            <div class="project-thumb-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+            <div class="project-overlay" onclick="openGallery()" style="cursor:pointer;"><span>View Project</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Capstone Project — Android VR App</p>
+            <p class="project-title">VTour — Cultural Heritage of Tayabas City</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-up fade-up-delay-1" data-category="uiux">
+          <div class="project-thumb">
+            <div class="project-thumb-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+            <div class="project-overlay" onclick="openProject('Van Reservation Mobile Application', 'https://embed.figma.com/proto/5J4vWuctgWDgKdUGwKeX27/VAN-RESERVATION-MOBILE-APPLICATION?page-id=0%3A1&node-id=1-81&p=f&viewport=28%2C544%2C0.25&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A81&embed-host=share')" style="cursor:pointer;"><span>View Prototype</span></div>
+          </div>
+          <div class="project-info"><p class="project-cat">UI/UX Design — Thesis Project</p><p class="project-title">Van Reservation — Mobile Application</p></div>
+        </div>
+
+        <div class="project-card fade-up fade-up-delay-2" data-category="video">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #E0F2FE, #BAE6FD);">
+            <div class="project-thumb-icon"><i class="fa-solid fa-film"></i></div>
+            <div class="project-overlay" onclick="openVideo('QTech Business Solutions — ERP Promo', 'videos/qtech-erp.mp4')" style="cursor:pointer;"><span>Watch Video</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Video Editing — OJT at QTech Business Solutions Inc.</p>
+            <p class="project-title">QTech ERP & Business Solutions Promo</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-up" data-category="video">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #FCE7F3, #FBCFE8);">
+            <div class="project-thumb-icon"><i class="fa-solid fa-clapperboard"></i></div>
+            <div class="project-overlay" onclick="openVideo('QTech Premium POS — BIR Accredited', 'videos/qtech-pos.mp4')" style="cursor:pointer;"><span>Watch Video</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Video Editing — OJT at QTech Business Solutions Inc.</p>
+            <p class="project-title">Premium POS BIR-Accredited Promo</p>
+          </div>
+        </div>
+        
   </section>
 
   <section id="resume">
     <div class="container">
       <p class="section-title fade-up">Resume</p>
+      <p class="section-subtitle fade-up fade-up-delay-1">Education, experience, and the tools I work with.</p>
       <div class="resume-layout">
         <div class="resume-col fade-up">
           <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
           <div class="timeline">
             <div class="timeline-item">
               <p class="timeline-date">2019 – 2024</p>
-              <p class="timeline-title">BS in Information Technology</p>
-              <p class="timeline-sub">CSTC — Sariaya, Quezon</p>
+              <p class="timeline-title">Bachelor of Science in Information Technology</p>
+              <p class="timeline-sub">College of Sciences, Technology and Communications — Sariaya, Quezon</p>
+              <p class="timeline-desc">Studied information technology with focus on web development, multimedia systems, and human-computer interaction.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="timeline-date">2014 – 2018</p>
+              <p class="timeline-title">Elementary – Senior High School</p>
+              <p class="timeline-sub">Saint John Bosco Academy — Tayabas City</p>
+              <p class="timeline-desc">Completed elementary through senior high school education with a strong academic foundation.</p>
             </div>
           </div>
         </div>
-        <div class="resume-col fade-up">
+        <div class="resume-col fade-up fade-up-delay-1">
           <h3><i class="fa-solid fa-briefcase"></i> Experience</h3>
           <div class="timeline">
             <div class="timeline-item">
               <p class="timeline-date">Sep 2025 – Present</p>
               <p class="timeline-title">Assistant Teacher</p>
+              <p class="timeline-sub">Casa del Niño Jesus de Tayabas, INC. — Tayabas City</p>
+              <p class="timeline-desc">Providing student support and encouraging self-directed learning. Supervising students during various activities and assisting in daily classroom operations.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="timeline-date">Apr 2025 – May 2025</p>
+              <p class="timeline-title">Office Staff Member</p>
+              <p class="timeline-sub">TCFAC — Tayabas City</p>
+              <p class="timeline-desc">Organized documents and digitized records. Followed confidentiality protocols and monitored data accuracy for the organization.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="timeline-date">Trainee</p>
+              <p class="timeline-title">Video Editor Trainee</p>
+              <p class="timeline-sub">Post &amp; Play Productions — Lucena City</p>
+              <p class="timeline-desc">Performed color grading and sourced music for productions. Handled camera angle switching for wedding productions and researched audio-visual elements.</p>
             </div>
           </div>
         </div>
       </div>
+      <div class="fade-up" style="margin-top: 64px;">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 24px; display:flex; align-items:center; gap:10px;">
+          <i class="fa-solid fa-toolbox" style="color: var(--color-indigo);"></i> Tools & Skills
+        </h3>
+        <div class="tools-grid">
+          <div class="tool-item"><i class="fa-brands fa-figma"></i><span>Figma</span></div>
+          <div class="tool-item"><i class="fa-brands fa-adobe"></i><span>Premiere Pro</span></div>
+          <div class="tool-item"><i class="fa-brands fa-adobe"></i><span>Illustrator</span></div>
+          <div class="tool-item"><i class="fa-solid fa-scissors"></i><span>Capcut</span></div>
+          <div class="tool-item"><i class="fa-solid fa-video"></i><span>DaVinci Resolve</span></div>
+          <div class="tool-item"><i class="fa-solid fa-pen-nib"></i><span>Canva</span></div>
+          <div class="tool-item"><i class="fa-solid fa-code"></i><span>Atom</span></div>
+          <div class="tool-item"><i class="fa-solid fa-laptop-code"></i><span>Visual Studio</span></div>
+          <div class="tool-item"><i class="fa-brands fa-microsoft"></i><span>Ms 365</span></div>
+        </div>
+      </div>
 
       <div class="resume-download-wrap fade-up">
-        <a href="RESUME.jpg" download="Jea_Edrieza_Resume.jpg" class="btn-primary">
-          <i class="fa-solid fa-download"></i> Download Resume (JPG)
+        <a href="RESUME.png" download="Jea_Edrieza_Resume.png" class="btn-download-resume">
+          <i class="fa-solid fa-download"></i> Download Resume
         </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="blog">
+    <div class="container">
+      <p class="section-title fade-up">Thoughts & Process</p>
+      <p class="section-subtitle fade-up fade-up-delay-1">Design notes, behind-the-scenes, and things I'm learning.</p>
+      <div class="blog-grid">
+        <div class="blog-card fade-up">
+          <div class="blog-thumb"><i class="fa-solid fa-pen-ruler"></i></div>
+          <div class="blog-body">
+            <p class="blog-date">Year Of 2022</p>
+            <h3 class="blog-title">5 Things I Wish I Knew Before Designing My First Mobile App</h3>
+            <p class="blog-excerpt">My first UX project was a mess — and that's okay. Here are five hard-earned lessons that changed how I think about interfaces, from information hierarchy to the art of saying less.</p>
+            <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="blog-card fade-up fade-up-delay-1">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, #FEF3C7, #FDE68A);"><i class="fa-solid fa-film" style="color: #D97706;"></i></div>
+          <div class="blog-body">
+            <p class="blog-date">Year Of 2025</p>
+            <h3 class="blog-title">How I Approach a Video Edit: From Raw Footage to Final Cut</h3>
+            <p class="blog-excerpt">Editing is storytelling. I walk through a workflow as a Trainee — I Learn to edit a wedding video, find the emotional arc, choose music, and make every cut feel harder and color grading confusing. But from that experience I learned knowledge and new skills.</p>
+            <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="blog-card fade-up fade-up-delay-2">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, #D1FAE5, #A7F3D0);"><i class="fa-solid fa-palette" style="color: #059669;"></i></div>
+          <div class="blog-body">
+            <p class="blog-date">Year of 2026</p>
+            <h3 class="blog-title">On Building a Visual Identity: Lessons from Designing Logos</h3>
+            <p class="blog-excerpt">A logo is the face of a brand, but its soul is in the brief. I share how I go. first of all before you create a logo you need to sketch it first on a sheet of paper. Cause ideas came from scratch not just designing. You also need to think creative. Creativeness cames from the heart. So I create things from the heart</p>
+            <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <section id="contact">
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="contact-info fade-up">
+          <h2>Let's Work<br/>Together.</h2>
+          <p>Got a project in mind? Whether it's a new interface, a video to produce, or a brand identity to build — I'd love to hear about it. Reach out and let's make something great.</p>
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+            <a href="mailto:jeaedrieza.design@gmail.com" style="display: flex; align-items: center; gap: 12px; color: var(--color-indigo); font-weight: 600; font-size: 0.95rem; text-decoration: none;">
+              <i class="fa-regular fa-envelope" style="font-size: 1rem;"></i> Email
+            </a>
+            <a href="tel:09667361984" style="display: flex; align-items: center; gap: 12px; color: var(--color-indigo); font-weight: 600; font-size: 0.95rem; text-decoration: none;">
+              <i class="fa-solid fa-phone" style="font-size: 1rem;"></i> Contact Number
+            </a>
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/jea.edrieza" class="social-link" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/jeachristine01/" class="social-link" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://x.com/jeaedrieza_001" class="social-link" target="_blank" rel="noopener" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://github.com/jeaedrieza" class="social-link" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+        <form class="contact-form fade-up fade-up-delay-1" action="https://formspree.io/f/yourformid" method="POST">
+          <div class="form-row">
+            <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required /></div>
+            <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="your@email.com" required /></div>
+          </div>
+          <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" name="subject" placeholder="What's this about?" required /></div>
+          <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea></div>
+          <div class="form-submit"><button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Message</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="project-modal" id="projectModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <h3 class="modal-title" id="modalTitle">Project Name</h3>
+      <div class="modal-embed">
+        <iframe id="modalIframe" src="" allowfullscreen allow="fullscreen"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-modal" id="galleryModal">
+    <button class="gallery-close" id="galleryClose">&times;</button>
+    <h3 class="gallery-title">VTour — Cultural Heritage of Tayabas City</h3>
+    <p class="gallery-counter" id="galleryCounter">1 / 11</p>
+    <div class="gallery-img-wrap">
+      <button class="gallery-nav gallery-prev" id="galleryPrev"><i class="fa-solid fa-chevron-left"></i></button>
+      <img id="galleryImg" src="" alt="VTour Screenshot">
+      <button class="gallery-nav gallery-next" id="galleryNext"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <p class="gallery-caption" id="galleryCaption"></p>
+  </div>
+
+  <div class="video-modal" id="videoModal">
+    <div class="video-modal-content">
+      <button class="video-modal-close" id="videoModalClose">&times;</button>
+      <p class="video-modal-title" id="videoModalTitle"></p>
+      <video id="videoPlayer" controls></video>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 <a href="#hero">Jea Edrieza</a>. All rights reserved.</p>
+      <p>Designed & built with ❤️ by Jea.</p>
+    </div>
+  </footer>
+
   <script src="script.js" defer></script>
   <script src="particles.js" defer></script>
   <script>
-    /* Your existing JS for modals and gallery here */
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
+    // Figma Prototype Modal
+    function openProject(title, embedUrl) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalIframe').src = embedUrl;
+      document.getElementById('projectModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    document.getElementById('modalClose').addEventListener('click', function() {
+      document.getElementById('projectModal').classList.remove('active');
+      document.getElementById('modalIframe').src = '';
+      document.body.style.overflow = '';
+    });
+    document.getElementById('projectModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        document.getElementById('projectModal').classList.remove('active');
+        document.getElementById('modalIframe').src = '';
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Video Modal
+    function openVideo(title, videoSrc) {
+      document.getElementById('videoModalTitle').textContent = title;
+      var player = document.getElementById('videoPlayer');
+      player.src = videoSrc;
+      document.getElementById('videoModal').classList.add('active');
+      player.play();
+    }
+    function closeVideo() {
+      var player = document.getElementById('videoPlayer');
+      player.pause();
+      player.src = '';
+      document.getElementById('videoModal').classList.remove('active');
+    }
+    document.getElementById('videoModalClose').addEventListener('click', closeVideo);
+    document.getElementById('videoModal').addEventListener('click', function(e) {
+      if (e.target === this) closeVideo();
+    });
+
+    // VTour Gallery
+    var vtourImages = [
+      { src: 'vtour/main-page.png', caption: 'Main Page — Tayabas Virtual Tour Museum' },
+      { src: 'vtour/part-1.png', caption: 'Part 1 — Museum Hallway & Navigation' },
+      { src: 'vtour/part-2.png', caption: 'Part 2 — Stand on the Marker' },
+      { src: 'vtour/part-3.png', caption: 'Part 3 — Kalesa Exhibit & History' },
+      { src: 'vtour/part-4.png', caption: 'Part 4 — Museum Artifacts & Cannon' },
+      { src: 'vtour/part-5.png', caption: 'Part 5 — Bridge Selection (Puente de Mate, Despedidas, Lakawan)' },
+      { src: 'vtour/part-6.png', caption: 'Part 6 — Bridge & River 360° View' },
+      { src: 'vtour/part-7.png', caption: 'Part 7 — Street Scene & 360° Navigation' },
+      { src: 'vtour/part-8.png', caption: 'Part 8 — Courtyard with Tiered Fountain' },
+      { src: 'vtour/part-9.png', caption: 'Part 9 — Historic Stone Church' },
+      { src: 'vtour/part-10.png', caption: 'Part 10 — Public Square & Statue Panorama' }
+    ];
+    var currentSlide = 0;
+    function openGallery() {
+      currentSlide = 0;
+      showSlide();
+      document.getElementById('galleryModal').classList.add('active');
+    }
+    function showSlide() {
+      document.getElementById('galleryImg').src = vtourImages[currentSlide].src;
+      document.getElementById('galleryCaption').textContent = vtourImages[currentSlide].caption;
+      document.getElementById('galleryCounter').textContent = (currentSlide + 1) + ' / ' + vtourImages.length;
+    }
+    document.getElementById('galleryNext').addEventListener('click', function() {
+      currentSlide = (currentSlide + 1) % vtourImages.length;
+      showSlide();
+    });
+    document.getElementById('galleryPrev').addEventListener('click', function() {
+      currentSlide = (currentSlide - 1 + vtourImages.length) % vtourImages.length;
+      showSlide();
+    });
+    document.getElementById('galleryClose').addEventListener('click', function() {
+      document.getElementById('galleryModal').classList.remove('active');
+    });
+    document.getElementById('galleryModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        document.getElementById('galleryModal').classList.remove('active');
+      }
     });
   </script>
+
 </body>
 </html>
