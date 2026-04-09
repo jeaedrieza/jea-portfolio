@@ -483,7 +483,7 @@
             <p class="project-title">Premium POS BIR-Accredited Promo</p>
           </div>
         </div>
-        
+
   </section>
 
   <section id="resume">
@@ -615,16 +615,7 @@
             <a href="https://github.com/jeaedrieza" class="social-link" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
           </div>
         </div>
-        <form class="contact-form fade-up fade-up-delay-1" action="https://formspree.io/f/yourformid" method="POST">
-          <div class="form-row">
-            <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required /></div>
-            <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="your@email.com" required /></div>
-          </div>
-          <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" name="subject" placeholder="What's this about?" required /></div>
-          <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea></div>
-          <div class="form-submit"><button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Message</button></div>
-        </form>
-      </div>
+        </div>
     </div>
   </section>
 
@@ -668,27 +659,25 @@
   <script src="script.js" defer></script>
   <script src="particles.js" defer></script>
   <script>
-    // Figma Prototype Modal
+    // 1. ANIMATION TRIGGER (FADE-UP FIX)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // 2. ORIGINAL LOGIC (Figma, Video, Gallery)
     function openProject(title, embedUrl) {
       document.getElementById('modalTitle').textContent = title;
       document.getElementById('modalIframe').src = embedUrl;
       document.getElementById('projectModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
     }
-    document.getElementById('modalClose').addEventListener('click', function() {
+    document.getElementById('modalClose').onclick = function() {
       document.getElementById('projectModal').classList.remove('active');
       document.getElementById('modalIframe').src = '';
-      document.body.style.overflow = '';
-    });
-    document.getElementById('projectModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        document.getElementById('projectModal').classList.remove('active');
-        document.getElementById('modalIframe').src = '';
-        document.body.style.overflow = '';
-      }
-    });
+    };
 
-    // Video Modal
     function openVideo(title, videoSrc) {
       document.getElementById('videoModalTitle').textContent = title;
       var player = document.getElementById('videoPlayer');
@@ -696,18 +685,12 @@
       document.getElementById('videoModal').classList.add('active');
       player.play();
     }
-    function closeVideo() {
+    document.getElementById('videoModalClose').onclick = function() {
       var player = document.getElementById('videoPlayer');
       player.pause();
-      player.src = '';
       document.getElementById('videoModal').classList.remove('active');
-    }
-    document.getElementById('videoModalClose').addEventListener('click', closeVideo);
-    document.getElementById('videoModal').addEventListener('click', function(e) {
-      if (e.target === this) closeVideo();
-    });
+    };
 
-    // VTour Gallery
     var vtourImages = [
       { src: 'vtour/main-page.png', caption: 'Main Page — Tayabas Virtual Tour Museum' },
       { src: 'vtour/part-1.png', caption: 'Part 1 — Museum Hallway & Navigation' },
@@ -732,23 +715,13 @@
       document.getElementById('galleryCaption').textContent = vtourImages[currentSlide].caption;
       document.getElementById('galleryCounter').textContent = (currentSlide + 1) + ' / ' + vtourImages.length;
     }
-    document.getElementById('galleryNext').addEventListener('click', function() {
-      currentSlide = (currentSlide + 1) % vtourImages.length;
-      showSlide();
-    });
-    document.getElementById('galleryPrev').addEventListener('click', function() {
-      currentSlide = (currentSlide - 1 + vtourImages.length) % vtourImages.length;
-      showSlide();
-    });
-    document.getElementById('galleryClose').addEventListener('click', function() {
-      document.getElementById('galleryModal').classList.remove('active');
-    });
-    document.getElementById('galleryModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        document.getElementById('galleryModal').classList.remove('active');
-      }
-    });
-  </script>
+    document.getElementById('galleryNext').onclick = () => { currentSlide = (currentSlide + 1) % vtourImages.length; showSlide(); };
+    document.getElementById('galleryPrev').onclick = () => { currentSlide = (currentSlide - 1 + vtourImages.length) % vtourImages.length; showSlide(); };
+    document.getElementById('galleryClose').onclick = () => document.getElementById('galleryModal').classList.remove('active');
 
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.onclick = () => mobileMenu.classList.toggle('active');
+  </script>
 </body>
 </html>
