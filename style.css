@@ -176,3 +176,14 @@ footer p a:hover { color: #818CF8; }
   .hero-name { letter-spacing: -2px; }
   .footer-inner { flex-direction: column; text-align: center; }
 }
+
+.project-info a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: #4f46e5;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
