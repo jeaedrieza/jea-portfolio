@@ -187,3 +187,27 @@ footer p a:hover { color: #818CF8; }
   font-weight: 600;
   text-decoration: none;
 }
+
+/* ========== BLOG CARD FIX ========== */
+.blog-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.blog-title {
+  min-height: 3em;
+}
+
+.read-more {
+  margin-top: auto;
+}
+
+.blog-date {
+  color: #4f46e5 !important;
+}
