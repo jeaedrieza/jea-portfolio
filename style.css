@@ -456,3 +456,7 @@ footer {
   .gallery-next { right: 8px; }
   .contact-form { padding: 24px; }
 }
+
+p {
+  text-align: justify;
+}
