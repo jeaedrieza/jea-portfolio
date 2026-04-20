@@ -164,7 +164,7 @@ nav, section, footer, .mobile-menu { position: relative; z-index: 1; }
   pointer-events: none;
 }
 .about-content h2 { font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 800; margin-bottom: 20px; letter-spacing: -0.3px; color: var(--color-text-dark); }
-.about-content p { color: var(--color-text-mid); margin-bottom: 18px; font-size: 1rem; line-height: 1.8; }
+.about-content p { color: var(--color-text-mid); margin-bottom: 18px; font-size: 1rem; line-height: 1.8; text-align: justify; }
 .about-content p strong { color: var(--color-text-dark); font-weight: 600; }
 .skills-label {
   font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
@@ -245,7 +245,7 @@ nav, section, footer, .mobile-menu { position: relative; z-index: 1; }
 .resume-item:last-child { margin-bottom: 0; }
 .resume-item-title { font-size: 0.95rem; font-weight: 700; color: var(--color-text-dark); margin-bottom: 2px; }
 .resume-item-sub { font-size: 0.82rem; color: var(--color-primary); font-weight: 500; margin-bottom: 6px; }
-.resume-item-desc { font-size: 0.85rem; color: var(--color-text-mid); line-height: 1.7; }
+.resume-item-desc { font-size: 0.85rem; color: var(--color-text-mid); line-height: 1.7; text-align: justify; }
 
 /* Skills */
 .resume-skill { margin-bottom: 18px; }
@@ -285,7 +285,7 @@ nav, section, footer, .mobile-menu { position: relative; z-index: 1; }
 .blog-content { padding: 24px; display: flex; flex-direction: column; flex: 1; }
 .blog-date { font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
 .blog-title { font-size: 1rem; font-weight: 700; color: var(--color-text-dark); margin-bottom: 10px; line-height: 1.4; min-height: 2.8em; }
-.blog-excerpt { font-size: 0.85rem; color: var(--color-text-mid); line-height: 1.7; margin-bottom: 18px; flex: 1; }
+.blog-excerpt { font-size: 0.85rem; color: var(--color-text-mid); line-height: 1.7; margin-bottom: 18px; flex: 1; text-align: justify; }
 .blog-read-more {
   font-size: 0.85rem; font-weight: 600; color: var(--color-primary);
   display: inline-flex; align-items: center; gap: 6px;
@@ -455,8 +455,4 @@ footer {
   .gallery-prev { left: 8px; }
   .gallery-next { right: 8px; }
   .contact-form { padding: 24px; }
-}
-
-p {
-  text-align: justify;
 }
