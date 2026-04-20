@@ -474,14 +474,14 @@
           </div>
         </div>
 
-    <!-- ★ VIMEL TRAVELS LOGO — Logo Design Project ★ -->
-      <div class="project-card fade-up" data-category="logo">
-       <div class="project-thumb" style="background: url('vimel-logo.png') center/contain no-repeat, linear-gradient(135deg, #0a1628, #1e3a5f);">
-        <div class="project-overlay"><span>View Logo</span></div>
-         </div>
-         <div class="project-info">
-           <p class="project-cat">Logo Design — Brand Identity</p>
-           <p class="project-title">Vimel Travels — Logo Design</p>
+       <!-- ★ VIMEL TRAVELS LOGO — Logo Design Project ★ -->
+        <div class="project-card fade-up" data-category="logo">
+          <div class="project-thumb" style="background: url('vimel-logo.png') center/contain no-repeat, linear-gradient(135deg, #0a1628, #1e3a5f);">
+            <div class="project-overlay" onclick="openVimelLogo()" style="cursor:pointer;"><span>View Logo</span></div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Logo Design — Brand Identity</p>
+            <p class="project-title">Vimel Travels — Logo Design</p>
         </div>
         </div>
 
@@ -970,6 +970,16 @@
       }, 3000);
     }
   </script>
-
+  <script>
+// VIMEL TRAVELS LOGO VIEWER
+function openVimelLogo() {
+  activeGallery = 'vimel-logo';
+  document.querySelector('.gallery-title').textContent = 'Vimel Travels — Logo Design';
+  document.getElementById('galleryImg').src = 'vimel-logo.png';
+  document.getElementById('galleryCaption').textContent = 'Vimel Travels — Signature Journey\'s, Timeless Memories';
+  document.getElementById('galleryCounter').textContent = '1 / 1';
+  document.getElementById('galleryModal').classList.add('active');
+}
+</script>
 </body>
 </html>
