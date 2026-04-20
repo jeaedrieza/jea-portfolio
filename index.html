@@ -7,230 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
-  <style>
-    * { box-sizing: border-box; }
-    body { overflow-x: hidden; width: 100%; }
-    img { max-width: 100%; height: auto; }
-
-    .resume-layout {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
-    .resume-col {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .resume-download-wrap {
-      text-align: center;
-      margin-top: 48px;
-      padding-bottom: 40px;
-    }
-    .btn-download-resume {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 32px;
-      background-color: #4f46e5;
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
-    }
-    .btn-download-resume:hover {
-      background-color: #4338ca;
-      transform: translateY(-3px);
-    }
-
-    @media (max-width: 768px) {
-      .hero-name { font-size: 3rem; }
-      .about-grid { grid-template-columns: 1fr; }
-      .filter-bar { display: flex; overflow-x: auto; padding-bottom: 10px; gap: 10px; }
-      .filter-btn { white-space: nowrap; }
-    }
-
-    .project-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .project-modal.active {
-      display: flex;
-    }
-    .modal-content {
-      background: #fff;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 500px;
-      max-height: 95vh;
-      overflow: visible;
-      position: relative;
-    }
-    .modal-close {
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      color: #6B7280;
-      cursor: pointer;
-      z-index: 10;
-    }
-    .modal-close:hover {
-      color: #1F2937;
-    }
-    .modal-title {
-      padding: 20px 24px 12px;
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-    .modal-embed {
-      width: 100%;
-      padding: 0;
-    }
-    .modal-embed iframe {
-      width: 100%;
-      height: 85vh;
-      border: none;
-      display: block;
-    }
-    .gallery-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.9);
-      z-index: 2000;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .gallery-modal.active {
-      display: flex;
-    }
-    .gallery-close {
-      position: absolute;
-      top: 20px;
-      right: 24px;
-      font-size: 2rem;
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      z-index: 10;
-    }
-    .gallery-title {
-      color: #fff;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .gallery-counter {
-      color: rgba(255,255,255,0.6);
-      font-size: 0.85rem;
-      margin-bottom: 16px;
-    }
-    .gallery-img-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      max-width: 900px;
-      flex: 1;
-    }
-    .gallery-img-wrap img {
-      max-width: 100%;
-      max-height: 70vh;
-      border-radius: 8px;
-      object-fit: contain;
-    }
-    .gallery-caption {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.85rem;
-      margin-top: 12px;
-      text-align: center;
-    }
-    .gallery-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.15);
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s;
-    }
-    .gallery-nav:hover {
-      background: rgba(255,255,255,0.3);
-    }
-    .gallery-prev { left: -60px; }
-    .gallery-next { right: -60px; }
-    .video-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.9);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .video-modal.active {
-      display: flex;
-    }
-    .video-modal-content {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-    }
-    .video-modal-close {
-      position: absolute;
-      top: -40px;
-      right: 0;
-      font-size: 2rem;
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-    }
-    .video-modal-title {
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-    .video-modal-content video {
-      width: 100%;
-      border-radius: 12px;
-      background: #000;
-    }
-    @media (max-width: 600px) {
-      .gallery-prev { left: 8px; }
-      .gallery-next { right: 8px; }
-    }
-  </style>
 </head>
 <body>
 
   <canvas id="particles"></canvas>
 
+  <!-- ==================== NAVBAR ==================== -->
   <nav id="navbar">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo"><img src="JEA LOGO.png" alt="JEA Logo"></a>
@@ -255,14 +37,17 @@
     <a href="#contact" class="mobile-nav-link">Contact</a>
   </div>
 
+  <!-- ==================== HERO ==================== -->
   <section id="hero">
     <h1 class="hero-name">Jea Edrieza</h1>
+    <p class="hero-subtitle">BSIT Graduate · UI/UX Designer · Visual Storyteller</p>
     <div class="scroll-indicator">
       <span>Scroll</span>
       <div class="scroll-chevron"></div>
     </div>
   </section>
 
+  <!-- ==================== ABOUT ==================== -->
   <section id="about">
     <div class="container">
       <div class="about-grid">
@@ -314,6 +99,7 @@
     </div>
   </section>
 
+  <!-- ==================== PROJECTS ==================== -->
   <section id="projects">
     <div class="container">
       <p class="section-title fade-up">My Work</p>
@@ -331,7 +117,7 @@
       <div class="projects-grid" id="projectsGrid">
 
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('birthday-tags.jpg'); background-size: cover; background-position: center;">
+          <div class="project-thumb" style="background: url('birthday-tags.jpg') center/cover;">
             <div class="project-overlay"><span>View Birthday Tags</span></div>
           </div>
           <div class="project-info">
@@ -341,7 +127,7 @@
         </div>
 
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('certificate-star.jpg'); background-size: cover; background-position: center;">
+          <div class="project-thumb" style="background: url('certificate-star.jpg') center/cover;">
             <div class="project-overlay"><span>View Certificate</span></div>
           </div>
           <div class="project-info">
@@ -351,7 +137,7 @@
         </div>
 
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('golden-invitation.jpg'); background-size: cover; background-position: center;">
+          <div class="project-thumb" style="background: url('golden-invitation.jpg') center/cover;">
             <div class="project-overlay"><span>View Invitation Design</span></div>
           </div>
           <div class="project-info">
@@ -361,7 +147,7 @@
         </div>
 
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('certificate-philanthropy.jpg'); background-size: cover; background-position: center;">
+          <div class="project-thumb" style="background: url('certificate-philanthropy.jpg') center/cover;">
             <div class="project-overlay"><span>View Certificate</span></div>
           </div>
           <div class="project-info">
@@ -371,7 +157,7 @@
         </div>
 
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('golden-programme.jpg'); background-size: cover; background-position: center;">
+          <div class="project-thumb" style="background: url('golden-programme.jpg') center/cover;">
             <div class="project-overlay"><span>View Programme Design</span></div>
           </div>
           <div class="project-info">
@@ -381,7 +167,7 @@
         </div>
 
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('anniversary-tags.jpg'); background-size: cover; background-position: center;">
+          <div class="project-thumb" style="background: url('anniversary-tags.jpg') center/cover;">
             <div class="project-overlay"><span>View Anniversary Tags</span></div>
           </div>
           <div class="project-info">
@@ -391,7 +177,7 @@
         </div>
 
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('table-reservation.jpg'); background-size: cover; background-position: center;">
+          <div class="project-thumb" style="background: url('table-reservation.jpg') center/cover;">
             <div class="project-overlay"><span>View Table Card</span></div>
           </div>
           <div class="project-info">
@@ -401,7 +187,7 @@
         </div>
 
         <div class="project-card fade-up" data-category="poster">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #BAE6FD, #60A5FA);">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #EDE9FE, #DDD6FE);">
             <div class="project-thumb-icon"><i class="fa-solid fa-quote-left"></i></div>
             <div class="project-overlay"><span>View Quote Design</span></div>
           </div>
@@ -412,7 +198,7 @@
         </div>
 
         <div class="project-card fade-up" data-category="poster">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #DCFCE7, #86EFAC);">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #FCE7F3, #FBCFE8);">
             <div class="project-thumb-icon"><i class="fa-solid fa-users"></i></div>
             <div class="project-overlay"><span>View Event Poster</span></div>
           </div>
@@ -423,7 +209,7 @@
         </div>
 
         <div class="project-card fade-up" data-category="poster">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #F3F4F6, #D1D5DB);">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #F3F4F6, #E5E7EB);">
             <div class="project-thumb-icon"><i class="fa-solid fa-sun"></i></div>
             <div class="project-overlay"><span>View Event Poster</span></div>
           </div>
@@ -444,16 +230,19 @@
           </div>
         </div>
 
-        <div class="project-card fade-up fade-up-delay-1" data-category="uiux">
-          <div class="project-thumb">
+        <div class="project-card fade-up" data-category="uiux">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #EDE9FE, #C4B5FD);">
             <div class="project-thumb-icon"><i class="fa-solid fa-mobile-screen"></i></div>
             <div class="project-overlay" onclick="openProject('Van Reservation Mobile Application', 'https://embed.figma.com/proto/5J4vWuctgWDgKdUGwKeX27/VAN-RESERVATION-MOBILE-APPLICATION?page-id=0%3A1&node-id=1-81&p=f&viewport=28%2C544%2C0.25&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A81&embed-host=share')" style="cursor:pointer;"><span>View Prototype</span></div>
           </div>
-          <div class="project-info"><p class="project-cat">UI/UX Design — Thesis Project</p><p class="project-title">Van Reservation — Mobile Application</p></div>
+          <div class="project-info">
+            <p class="project-cat">UI/UX Design — Thesis Project</p>
+            <p class="project-title">Van Reservation — Mobile Application</p>
+          </div>
         </div>
 
-        <div class="project-card fade-up fade-up-delay-2" data-category="video">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #E0F2FE, #BAE6FD);">
+        <div class="project-card fade-up" data-category="video">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #DBEAFE, #BFDBFE);">
             <div class="project-thumb-icon"><i class="fa-solid fa-film"></i></div>
             <div class="project-overlay" onclick="openVideo('QTech Business Solutions — ERP Promo', 'videos/qtech-erp.mp4')" style="cursor:pointer;"><span>Watch Video</span></div>
           </div>
@@ -474,7 +263,7 @@
           </div>
         </div>
 
-       <!-- ★ VIMEL TRAVELS LOGO — Logo Design Project ★ -->
+        <!-- ★ VIMEL TRAVELS LOGO ★ -->
         <div class="project-card fade-up" data-category="logo">
           <div class="project-thumb" style="background: url('vimel-logo.png') center/contain no-repeat, linear-gradient(135deg, #0a1628, #1e3a5f);">
             <div class="project-overlay" onclick="openVimelLogo()" style="cursor:pointer;"><span>View Logo</span></div>
@@ -482,24 +271,27 @@
           <div class="project-info">
             <p class="project-cat">Logo Design — Brand Identity</p>
             <p class="project-title">Vimel Travels — Logo Design</p>
+          </div>
         </div>
+
+        <!-- ★ VIMEL TRAVELS WEBSITE ★ -->
+        <div class="project-card fade-up" data-category="web">
+          <div class="project-thumb" style="background: url('vimel-logo.png') center/contain no-repeat, linear-gradient(135deg, #0a1628, #1e3a5f);">
+            <div class="project-overlay" style="cursor:pointer;">
+              <span onclick="openVimelGallery()">View Screenshots</span>
+              <a href="https://jeaedrieza.github.io/Vimel-Travels/" target="_blank" rel="noopener">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live Site
+              </a>
+            </div>
+          </div>
+          <div class="project-info">
+            <p class="project-cat">Web Design & Development</p>
+            <p class="project-title">Vimel Travels — Signature Journey's, Timeless Memories</p>
+          </div>
         </div>
-        <!-- ★ VIMEL TRAVELS — Web Design Project ★ -->
-       <div class="project-card fade-up" data-category="uiux">
-       <div class="project-thumb" style="background-image: url('vimel-logo.png'); background-color: #0a1628; background-size: contain; background-position: center; background-repeat: no-repeat;">
-       <div class="project-overlay" style="cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:10px;">
-       <span onclick="openVimelGallery()">View Screenshots</span>
-       <a href="https://jeaedrieza.github.io/Vimel-Travels/" target="_blank" rel="noopener" 
-         style="color:#fff; font-size:0.85rem; text-decoration:none;">
-        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live Site
-      </a>
+
+      </div>
     </div>
-  </div>
-  <div class="project-info">
-    <p class="project-cat">Web Design & Development</p>
-    <p class="project-title">Vimel Travels — Signature Journey's, Timeless Memories</p>
-  </div>
-</div>
   </section>
 
   <!-- ==================== RESUME ==================== -->
@@ -575,8 +367,7 @@
 
       <div class="resume-download-wrap fade-up">
         <a href="jea-edrieza-resume.pdf" download class="btn-download-resume">
-          <i class="fa-solid fa-file-arrow-down"></i>
-          Download Full Resume (PDF)
+          <i class="fa-solid fa-file-arrow-down"></i> Download Full Resume
         </a>
       </div>
     </div>
@@ -696,7 +487,7 @@
     </div>
   </footer>
 
-  <!-- ==================== PROJECT MODAL (Figma embed) ==================== -->
+  <!-- ==================== MODALS ==================== -->
   <div class="project-modal" id="projectModal">
     <div class="modal-content">
       <button class="modal-close" onclick="closeProject()">×</button>
@@ -707,7 +498,6 @@
     </div>
   </div>
 
-  <!-- ==================== GALLERY MODAL (VTour / Vimel Travels) ==================== -->
   <div class="gallery-modal" id="galleryModal">
     <button class="gallery-close" onclick="closeGallery()">×</button>
     <p class="gallery-title" id="galleryTitle">VTour — Cultural Heritage of Tayabas City</p>
@@ -720,7 +510,6 @@
     <p class="gallery-caption" id="galleryCaption"></p>
   </div>
 
-  <!-- ==================== VIDEO MODAL ==================== -->
   <div class="video-modal" id="videoModal">
     <div class="video-modal-content">
       <button class="video-modal-close" onclick="closeVideo()">×</button>
@@ -731,55 +520,14 @@
 
   <!-- ==================== SCRIPTS ==================== -->
   <script>
-    // ── Particles canvas ──────────────────────────────────────────────────────
-    (function () {
-      var canvas = document.getElementById('particles');
-      var ctx = canvas.getContext('2d');
-      var particles = [];
-      function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      resize();
-      window.addEventListener('resize', resize);
-      for (var i = 0; i < 60; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 2 + 0.5,
-          dx: (Math.random() - 0.5) * 0.4,
-          dy: (Math.random() - 0.5) * 0.4,
-          o: Math.random() * 0.5 + 0.1
-        });
-      }
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(function (p) {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(99,102,241,' + p.o + ')';
-          ctx.fill();
-          p.x += p.dx;
-          p.y += p.dy;
-          if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-          if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-        });
-        requestAnimationFrame(draw);
-      }
-      draw();
-    })();
-
-    // ── Navbar scroll ─────────────────────────────────────────────────────────
+    // ── Navbar scroll ──
     window.addEventListener('scroll', function () {
       var navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
     });
 
-    // ── Hamburger menu ────────────────────────────────────────────────────────
+    // ── Hamburger menu ──
     var hamburger = document.getElementById('hamburger');
     var mobileMenu = document.getElementById('mobileMenu');
     hamburger.addEventListener('click', function () {
@@ -793,7 +541,7 @@
       });
     });
 
-    // ── Fade-up on scroll ─────────────────────────────────────────────────────
+    // ── Fade-up on scroll ──
     var fadeEls = document.querySelectorAll('.fade-up');
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -804,7 +552,7 @@
     }, { threshold: 0.1 });
     fadeEls.forEach(function (el) { observer.observe(el); });
 
-    // ── Filter bar ────────────────────────────────────────────────────────────
+    // ── Filter bar ──
     var filterBtns = document.querySelectorAll('.filter-btn');
     var projectCards = document.querySelectorAll('.project-card');
     filterBtns.forEach(function (btn) {
@@ -815,6 +563,9 @@
         projectCards.forEach(function (card) {
           if (filter === 'all' || card.getAttribute('data-category') === filter) {
             card.style.display = '';
+            card.classList.remove('visible');
+            void card.offsetWidth;
+            card.classList.add('visible');
           } else {
             card.style.display = 'none';
           }
@@ -822,7 +573,7 @@
       });
     });
 
-    // ── Project modal (Figma embed) ───────────────────────────────────────────
+    // ── Project modal (Figma) ──
     function openProject(title, url) {
       document.getElementById('modalTitle').textContent = title;
       document.getElementById('modalIframe').src = url;
@@ -838,7 +589,7 @@
       if (e.target === this) closeProject();
     });
 
-    // ── Video modal ───────────────────────────────────────────────────────────
+    // ── Video modal ──
     function openVideo(title, src) {
       document.getElementById('videoModalTitle').textContent = title;
       var player = document.getElementById('videoModalPlayer');
@@ -850,19 +601,17 @@
     function closeVideo() {
       document.getElementById('videoModal').classList.remove('active');
       var player = document.getElementById('videoModalPlayer');
-      player.pause();
-      player.src = '';
+      player.pause(); player.src = '';
       document.body.style.overflow = '';
     }
     document.getElementById('videoModal').addEventListener('click', function (e) {
       if (e.target === this) closeVideo();
     });
 
-    // ── Gallery modal — unified for VTour & Vimel Travels ────────────────────
+    // ── Gallery modal — VTour & Vimel Travels ──
     var activeGallery = 'vtour';
     var currentSlide = 0;
 
-    // VTour images (add your actual filenames here)
     var vtourImages = [
       { src: 'vtour/vtour-01.jpg', caption: '01 — VTour Home Screen' },
       { src: 'vtour/vtour-02.jpg', caption: '02 — Heritage Site Selection' },
@@ -871,7 +620,6 @@
       { src: 'vtour/vtour-05.jpg', caption: '05 — Navigation Map' }
     ];
 
-    // Vimel Travels images
     var vimelImages = [
       { src: '01-loading-screen.jpg', caption: '01 — Loading Screen' },
       { src: '02-main-page.jpg', caption: '02 — Main Page' },
@@ -890,15 +638,14 @@
       { src: '15-travel-checklist.jpg', caption: '15 — Travel Checklist' },
       { src: '16-faq.jpg', caption: '16 — Frequently Asked Questions' },
       { src: '17-safety-first part 1.jpg', caption: '17 — SAFETY FIRST — Emergency & Safety' },
-      { src: '17-safety-first part 2.jpg', caption: '18 — SAFETY FIRST — Emergency & Safety' },
+      { src: '17-safety-first part 2.jpg', caption: '18 — SAFETY FIRST — Part 2' },
       { src: '18-planner.jpg', caption: '19 — PLANNER — Build Your Itinerary' },
-      { src: '19-contact-us.jpg', caption: '20 — Reach Out — Contact Us' },
+      { src: '19-contact-us.jpg', caption: '20 — Reach Out — Contact Us' }
     ];
 
     function getActiveImages() {
       return activeGallery === 'vimel' ? vimelImages : vtourImages;
     }
-
     function showSlide(index) {
       var images = getActiveImages();
       if (index < 0) index = images.length - 1;
@@ -908,42 +655,38 @@
       document.getElementById('galleryCaption').textContent = images[currentSlide].caption;
       document.getElementById('galleryCounter').textContent = (currentSlide + 1) + ' / ' + images.length;
     }
-
     function openGallery() {
-      activeGallery = 'vtour';
-      currentSlide = 0;
+      activeGallery = 'vtour'; currentSlide = 0;
       document.getElementById('galleryTitle').textContent = 'VTour — Cultural Heritage of Tayabas City';
       document.getElementById('galleryModal').classList.add('active');
       document.body.style.overflow = 'hidden';
       showSlide(0);
     }
-
     function openVimelGallery() {
-      activeGallery = 'vimel';
-      currentSlide = 0;
+      activeGallery = 'vimel'; currentSlide = 0;
       document.getElementById('galleryTitle').textContent = 'Vimel Travels — Website Screenshots';
       document.getElementById('galleryModal').classList.add('active');
       document.body.style.overflow = 'hidden';
       showSlide(0);
     }
-
+    function openVimelLogo() {
+      activeGallery = 'vimel-logo';
+      document.getElementById('galleryTitle').textContent = 'Vimel Travels — Logo Design';
+      document.getElementById('galleryImg').src = 'vimel-logo.png';
+      document.getElementById('galleryCaption').textContent = "Vimel Travels — Signature Journey's, Timeless Memories";
+      document.getElementById('galleryCounter').textContent = '1 / 1';
+      document.getElementById('galleryModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
     function closeGallery() {
       document.getElementById('galleryModal').classList.remove('active');
       document.body.style.overflow = '';
     }
-
-    document.getElementById('galleryNext').onclick = function () {
-      showSlide(currentSlide + 1);
-    };
-    document.getElementById('galleryPrev').onclick = function () {
-      showSlide(currentSlide - 1);
-    };
-
+    document.getElementById('galleryNext').onclick = function () { showSlide(currentSlide + 1); };
+    document.getElementById('galleryPrev').onclick = function () { showSlide(currentSlide - 1); };
     document.getElementById('galleryModal').addEventListener('click', function (e) {
       if (e.target === this) closeGallery();
     });
-
-    // Keyboard navigation for gallery
     document.addEventListener('keydown', function (e) {
       var modal = document.getElementById('galleryModal');
       if (!modal.classList.contains('active')) return;
@@ -952,29 +695,19 @@
       if (e.key === 'Escape') closeGallery();
     });
 
-    // ── Contact form ──────────────────────────────────────────────────────────
+    // ── Contact form ──
     function handleContactForm(e) {
       e.preventDefault();
       var btn = e.target.querySelector('.btn-submit');
       btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
-      btn.style.backgroundColor = '#10B981';
+      btn.style.background = '#10B981';
       setTimeout(function () {
         btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
-        btn.style.backgroundColor = '';
+        btn.style.background = '';
         e.target.reset();
       }, 3000);
     }
   </script>
-  <script>
-// VIMEL TRAVELS LOGO VIEWER
-function openVimelLogo() {
-  activeGallery = 'vimel-logo';
-  document.querySelector('.gallery-title').textContent = 'Vimel Travels — Logo Design';
-  document.getElementById('galleryImg').src = 'vimel-logo.png';
-  document.getElementById('galleryCaption').textContent = 'Vimel Travels — Signature Journey\'s, Timeless Memories';
-  document.getElementById('galleryCounter').textContent = '1 / 1';
-  document.getElementById('galleryModal').classList.add('active');
-}
-</script>
+  <script src="particles.js" defer></script>
 </body>
 </html>
