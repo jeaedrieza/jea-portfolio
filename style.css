@@ -66,7 +66,7 @@ nav, section, footer, .mobile-menu { position: relative; z-index: 1; }
   height: 100%; display: flex; align-items: center; justify-content: space-between;
 }
 .nav-logo { display: flex; align-items: center; }
-.nav-logo img { height: 48px; width: auto; }
+.nav-logo img { height: 90px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-links a {
   font-size: 0.88rem; font-weight: 500; color: var(--color-text-mid);
