@@ -47,14 +47,14 @@ function init() {
 init();
 
 function connectParticles() {
-  for (let a = 0; a < particles.length; a) {
-    for (let b = a + 1; b < particles.length; b) {
+  for (let a = 0; a < particles.length; a++) {
+    for (let b = a + 1; b < particles.length; b++) {
       const dx = particles[a].x - particles[b].x;
       const dy = particles[a].y - particles[b].y;
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < 120) {
         ctx.beginPath();
-        ctx.strokeStyle = rgba(139, 92, 246, ${0.12 * (1 - dist / 120)});
+        ctx.strokeStyle = `rgba(139, 92, 246, ${0.12 * (1 - dist / 120)})`;
         ctx.lineWidth = 0.5;
         ctx.moveTo(particles[a].x, particles[a].y);
         ctx.lineTo(particles[b].x, particles[b].y);
@@ -67,7 +67,7 @@ function connectParticles() {
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < 150) {
         ctx.beginPath();
-        ctx.strokeStyle = rgba(139, 92, 246, ${0.25 * (1 - dist / 150)});
+        ctx.strokeStyle = `rgba(139, 92, 246, ${0.25 * (1 - dist / 150)})`;
         ctx.lineWidth = 0.7;
         ctx.moveTo(particles[a].x, particles[a].y);
         ctx.lineTo(mouse.x, mouse.y);

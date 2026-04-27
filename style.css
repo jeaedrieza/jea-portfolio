@@ -265,8 +265,6 @@ nav, section, footer, .mobile-menu { position: relative; z-index: 1; }
 .resume-item-sub { font-size: 0.82rem; color: var(--color-primary); font-weight: 500; margin-bottom: 6px; }
 .resume-item-desc { font-size: 0.85rem; color: var(--color-text-mid); line-height: 1.7; text-align: justify; }
 
-
-
 /* Resume Download */
 .resume-download-wrap { text-align: center; margin-top: 48px; }
 .btn-download-resume {
@@ -277,8 +275,6 @@ nav, section, footer, .mobile-menu { position: relative; z-index: 1; }
   box-shadow: 0 8px 24px rgba(139,92,246,0.25);
 }
 .btn-download-resume:hover { background: var(--color-primary-dk); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(139,92,246,0.35); }
-
-
 
 /* ========== CONTACT ========== */
 #contact { background: linear-gradient(180deg, #FAF5FF 0%, #F3EEFF 100%); }
@@ -301,8 +297,6 @@ nav, section, footer, .mobile-menu { position: relative; z-index: 1; }
 .contact-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-light); margin-bottom: 2px; }
 .contact-value { font-size: 0.9rem; font-weight: 500; color: var(--color-text-dark); transition: color var(--transition); }
 a.contact-value:hover { color: var(--color-primary); }
-
-
 
 /* ========== FOOTER ========== */
 footer {
@@ -375,8 +369,6 @@ footer {
 .gallery-nav:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.3); }
 .gallery-prev { left: -60px; }
 .gallery-next { right: -60px; }
-
-
 
 /* ========== THEME TOGGLE ========== */
 .nav-right { display: flex; align-items: center; gap: 16px; }
@@ -483,25 +475,24 @@ a, button { transition: all 0.3s ease; }
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
-    .nav-links { display: none; }
+  .nav-links { display: none; }
   .hamburger { display: flex; }
   .nav-right { gap: 12px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-photo-wrap { max-width: 320px; margin: 0 auto; }
-    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .resume-layout { flex-direction: column; }
   .resume-col { min-width: 100%; }
   .contact-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 600px) {
   section { padding: 72px 20px; }
-    .projects-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
   .filter-bar { display: flex; overflow-x: auto; padding-bottom: 10px; gap: 8px; -webkit-overflow-scrolling: touch; }
   .filter-btn { white-space: nowrap; flex-shrink: 0; }
   .hero-name { letter-spacing: -2px; }
   .footer-inner { text-align: center; }
   .gallery-prev { left: 8px; }
   .gallery-next { right: 8px; }
-    .contact-form { padding: 24px; }
   .contact-grid--centered { max-width: 100%; }
 }
