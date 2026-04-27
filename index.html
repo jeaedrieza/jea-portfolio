@@ -4,45 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jea Edrieza — Portfolio</title>
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="JEA LOGO.png" />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Jea Edrieza — UI/UX &amp; Graphic Designer" />
   <meta property="og:description" content="Designing with heart. Building with purpose." />
   <meta property="og:image" content="https://jeaedrieza.github.io/jea-portfolio/og-preview.png" />
   <meta property="og:url" content="https://jeaedrieza.github.io/jea-portfolio/" />
   <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Jea Edrieza — UI/UX &amp; Graphic Designer" />
   <meta name="twitter:description" content="Designing with heart. Building with purpose." />
   <meta name="twitter:image" content="https://jeaedrieza.github.io/jea-portfolio/og-preview.png" />
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome 6.5.0 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Particles Canvas -->
   <canvas id="particles"></canvas>
-
-  <!-- ========== NAVBAR ========== -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <img src="JEA LOGO.png" alt="JEA Logo" />
-      </a>
+      <a href="#" class="nav-logo"><img src="JEA LOGO.png" alt="JEA Logo" /></a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -51,106 +33,53 @@
       </ul>
       <div class="nav-right">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-          <i class="fa-solid fa-moon"></i>
-          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i>
         </button>
-        <div class="hamburger" id="hamburger" aria-label="Open menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <div class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></div>
       </div>
     </div>
   </nav>
-
-  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#about" onclick="closeMobileMenu()">About</a>
     <a href="#projects" onclick="closeMobileMenu()">Projects</a>
     <a href="#resume" onclick="closeMobileMenu()">Resume</a>
     <a href="#contact" onclick="closeMobileMenu()">Contact</a>
   </div>
-
-  <!-- ========== HERO ========== -->
   <section id="hero">
     <h1 class="hero-name">Jea Edrieza</h1>
     <p class="hero-subtitle">Designing with heart. Building with purpose.</p>
-    <a class="hero-cta" href="#contact">
-      Available for Opportunities <i class="fa-solid fa-arrow-right"></i>
-    </a>
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="scroll-chevron"></div>
-    </div>
+    <a class="hero-cta" href="#contact">Available for Opportunities <i class="fa-solid fa-arrow-right"></i></a>
+    <div class="scroll-indicator"><span>Scroll</span><div class="scroll-chevron"></div></div>
   </section>
-
-  <!-- ========== ABOUT ========== -->
   <section id="about">
     <div class="container">
       <div class="about-grid">
-        <div class="about-photo-wrap fade-up">
-          <img src="jea-photo.png" alt="Jea Edrieza" />
-        </div>
+        <div class="about-photo-wrap fade-up"><img src="jea-photo.png" alt="Jea Edrieza" /></div>
         <div class="about-content">
           <h2 class="fade-up">Hey, I'm Jea 👋</h2>
-          <p class="fade-up fade-up-delay-1">
-            I'm a <strong>BSIT graduate</strong> based in the Philippines with a deep passion for
-            <strong>UI/UX Design and graphic design</strong>. I love turning ideas into intuitive,
-            beautiful digital experiences — from brand identities that tell a story to interfaces that
-            feel effortless. I believe great design is invisible — it just works, and it makes you feel something.
-          </p>
-          <p class="fade-up fade-up-delay-2">
-            I've been building my craft across <strong>graphic design, brand identity, and UI/UX</strong>
-            through school projects, freelance work, and internships — and I'm just getting started.
-            Every poster, every logo, every interface is a chance to grow. I show up, I learn fast,
-            and I bring heart to everything I create.
-          </p>
-          <p class="fade-up fade-up-delay-3">
-            My goal? To be a <strong>designer who builds visual systems that truly help people</strong>
-            — from brand identities to product interfaces. I'm drawn to design that <em>communicates</em>,
-            not just decorates — and I'm investing every day into getting better. If you're looking for
-            someone hungry to learn and ready to create.
-          </p>
-
-          <!-- Disciplines -->
+          <p class="fade-up fade-up-delay-1">I'm a <strong>BSIT graduate</strong> based in the Philippines with a deep passion for <strong>UI/UX Design and graphic design</strong>. I love turning ideas into intuitive, beautiful digital experiences — from brand identities that tell a story to interfaces that feel effortless. I believe great design is invisible — it just works, and it makes you feel something.</p>
+          <p class="fade-up fade-up-delay-2">I've been building my craft across <strong>graphic design, brand identity, and UI/UX</strong> through school projects, freelance work, and internships — and I'm just getting started. Every poster, every logo, every interface is a chance to grow. I show up, I learn fast, and I bring heart to everything I create.</p>
+          <p class="fade-up fade-up-delay-3">My goal? To be a <strong>designer who builds visual systems that truly help people</strong> — from brand identities to product interfaces. I'm drawn to design that <em>communicates</em>, not just decorates — and I'm investing every day into getting better. If you're looking for someone hungry to learn and ready to create.</p>
           <p class="skills-label fade-up">Disciplines</p>
           <div class="skills-tags fade-up">
-            <span class="skill-tag indigo">UI/UX Design</span>
-            <span class="skill-tag indigo">Graphic Design</span>
-            <span class="skill-tag indigo">Brand Identity</span>
-            <span class="skill-tag indigo">Logo Design</span>
-            <span class="skill-tag indigo">Web Design</span>
+            <span class="skill-tag indigo">UI/UX Design</span><span class="skill-tag indigo">Graphic Design</span><span class="skill-tag indigo">Brand Identity</span><span class="skill-tag indigo">Logo Design</span><span class="skill-tag indigo">Web Design</span>
           </div>
-
-          <!-- Tools -->
           <p class="skills-label fade-up">Tools &amp; Software</p>
           <div class="skills-tags fade-up">
-            <span class="skill-tag">Figma</span>
-            <span class="skill-tag">Adobe Illustrator</span>
-            <span class="skill-tag">Visual Studio Code</span>
-            <span class="skill-tag">HTML / CSS</span>
+            <span class="skill-tag">Figma</span><span class="skill-tag">Adobe Illustrator</span><span class="skill-tag">Visual Studio Code</span><span class="skill-tag">HTML / CSS</span>
           </div>
-
-          <!-- Interests -->
           <p class="skills-label fade-up">Interests</p>
           <div class="skills-tags fade-up">
-            <span class="skill-tag">Sketching</span>
-            <span class="skill-tag">Typography</span>
-            <span class="skill-tag">Visual Research</span>
-            <span class="skill-tag">Songwriting &amp; Poetry</span>
+            <span class="skill-tag">Sketching</span><span class="skill-tag">Typography</span><span class="skill-tag">Visual Research</span><span class="skill-tag">Songwriting &amp; Poetry</span>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ========== PROJECTS ========== -->
   <section id="projects">
     <div class="container">
       <h2 class="section-title fade-up">My Work</h2>
       <p class="section-subtitle fade-up">A selection of projects across design and branding.</p>
-
-      <!-- Filter Bar -->
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="capstone">Capstone</button>
@@ -160,173 +89,103 @@
         <button class="filter-btn" data-filter="stationery">Stationery</button>
         <button class="filter-btn" data-filter="web">Web Design</button>
       </div>
-
-      <!-- Projects Grid -->
       <div class="projects-grid" id="projectsGrid">
-
         <div class="project-card fade-up" data-category="uiux">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #EDE9FE, #C4B5FD);">
+          <div class="project-thumb" style="background:linear-gradient(135deg,#EDE9FE,#C4B5FD);">
             <div class="project-thumb-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-            <div class="project-overlay" style="cursor:pointer;">
-              <span onclick="window.location.href='van-reservation.html'">View Case Study</span>
-            </div>
+            <div class="project-overlay" style="cursor:pointer;"><span onclick="window.location.href='van-reservation.html'">View Case Study</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">UI/UX Design — Thesis Project</p>
-            <p class="project-title">Van Reservation — Mobile Application</p>
-          </div>
+          <div class="project-info"><p class="project-cat">UI/UX Design — Thesis Project</p><p class="project-title">Van Reservation — Mobile Application</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="web">
-          <div class="project-thumb" style="background: url('vimel-logo.png') center/contain no-repeat, linear-gradient(135deg, #0a1628, #1e3a5f);">
+          <div class="project-thumb" style="background:url('vimel-logo.png') center/contain no-repeat,linear-gradient(135deg,#0a1628,#1e3a5f);">
             <div class="project-overlay" style="cursor:pointer;">
               <span onclick="openVimelGallery()">View Screenshots</span>
-              <a href="https://jeaedrieza.github.io/Vimel-Travels/" target="_blank" rel="noopener">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live Site
-              </a>
+              <a href="https://jeaedrieza.github.io/Vimel-Travels/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live Site</a>
             </div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Web Design &amp; Development</p>
-            <p class="project-title">Vimel Travels — Signature Journey's, Timeless Memories</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Web Design &amp; Development</p><p class="project-title">Vimel Travels — Signature Journey's, Timeless Memories</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="logo">
-          <div class="project-thumb" style="background: url('vimel-logo.png') center/contain no-repeat, linear-gradient(135deg, #0a1628, #1e3a5f);">
-            <div class="project-overlay" onclick="openVimelLogo()" style="cursor:pointer;">
-              <span>View Logo</span>
-            </div>
+          <div class="project-thumb" style="background:url('vimel-logo.png') center/contain no-repeat,linear-gradient(135deg,#0a1628,#1e3a5f);">
+            <div class="project-overlay" onclick="openVimelLogo()" style="cursor:pointer;"><span>View Logo</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Logo Design — Brand Identity</p>
-            <p class="project-title">Vimel Travels — Logo Design</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Logo Design — Brand Identity</p><p class="project-title">Vimel Travels — Logo Design</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="capstone">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #FEF3C7, #FDE68A);">
+          <div class="project-thumb" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">
             <div class="project-thumb-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
-            <div class="project-overlay" onclick="openGallery()" style="cursor:pointer;">
-              <span>View Project</span>
-            </div>
+            <div class="project-overlay" onclick="openGallery()" style="cursor:pointer;"><span>View Project</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Capstone Project — Android VR App</p>
-            <p class="project-title">VTour — Cultural Heritage of Tayabas City</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Capstone Project — Android VR App</p><p class="project-title">VTour — Cultural Heritage of Tayabas City</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="poster">
-          <div class="project-thumb" style="background: url('qtech-quote.jpg') center/cover;">
-            <div class="project-overlay"><span>View Quote Design</span></div>
+          <div class="project-thumb" style="background:url('fixing-quote.png') center/cover;">
+            <div class="project-overlay" onclick="viewImage('fixing-quote.png','QTech Quote #4 — Fixing/Solving')" style="cursor:pointer;"><span>View Full Screen</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Graphic Design — Social Media</p>
-            <p class="project-title">QTech Quote #4 — Fixing/Solving</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Graphic Design — Social Media</p><p class="project-title">QTech Quote #4 — Fixing/Solving</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="poster">
-          <div class="project-thumb" style="background: url('tayabense-get-together.jpg') center/cover;">
-            <div class="project-overlay"><span>View Event Poster</span></div>
+          <div class="project-thumb" style="background:url('Tayabense-GetTogether.png') center/cover;">
+            <div class="project-overlay" onclick="viewImage('Tayabense-GetTogether.png','Tayabense Get Together 2024')" style="cursor:pointer;"><span>View Full Screen</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Event Poster — Community</p>
-            <p class="project-title">Tayabense Get Together 2024</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Event Poster — Community</p><p class="project-title">Tayabense Get Together 2024</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="poster">
-          <div class="project-thumb" style="background: url('tayabense-picnic.jpg') center/cover;">
-            <div class="project-overlay"><span>View Event Poster</span></div>
+          <div class="project-thumb" style="background:url('Tayabense-Picnic.png') center/cover;">
+            <div class="project-overlay" onclick="viewImage('Tayabense-Picnic.png','2024 Tayabense Annual Picnic')" style="cursor:pointer;"><span>View Full Screen</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Event Branding — Annual Picnic</p>
-            <p class="project-title">2024 Tayabense Annual Picnic</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Event Branding — Annual Picnic</p><p class="project-title">2024 Tayabense Annual Picnic</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('golden-invitation.jpg') center/cover;">
-            <div class="project-overlay"><span>View Invitation Design</span></div>
+          <div class="project-thumb" style="background:url('golden-invitation.jpg') center/cover;">
+            <div class="project-overlay" onclick="viewImage('golden-invitation.jpg','50th Golden Anniversary — Memories to Hold')" style="cursor:pointer;"><span>View Full Screen</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Event Invitation — Sariaya Institute</p>
-            <p class="project-title">50th Golden Anniversary — Memories to Hold</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Event Invitation — Sariaya Institute</p><p class="project-title">50th Golden Anniversary — Memories to Hold</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('certificate-star.jpg') center/cover;">
-            <div class="project-overlay"><span>View Certificate</span></div>
+          <div class="project-thumb" style="background:url('certificate-star.jpg') center/cover;">
+            <div class="project-overlay" onclick="viewImage('certificate-star.jpg','Star Award Certificate — Sariaya Institute')" style="cursor:pointer;"><span>View Full Screen</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Branding &amp; Event Stationery</p>
-            <p class="project-title">Star Award Certificate — Sariaya Institute</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Branding &amp; Event Stationery</p><p class="project-title">Star Award Certificate — Sariaya Institute</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('certificate-philanthropy.jpg') center/cover;">
-            <div class="project-overlay"><span>View Certificate</span></div>
+          <div class="project-thumb" style="background:url('certificate-philanthropy.jpg') center/cover;">
+            <div class="project-overlay" onclick="viewImage('certificate-philanthropy.jpg','Philanthropy Award — 50th Golden Celebration')" style="cursor:pointer;"><span>View Full Screen</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Stationery Design — Recognition</p>
-            <p class="project-title">Philanthropy Award — 50th Golden Celebration</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Stationery Design — Recognition</p><p class="project-title">Philanthropy Award — 50th Golden Celebration</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('golden-programme.jpg') center/cover;">
-            <div class="project-overlay"><span>View Programme Design</span></div>
+          <div class="project-thumb" style="background:url('golden-programme.jpg') center/cover;">
+            <div class="project-overlay" onclick="viewImage('golden-programme.jpg','50th Anniversary — Programme of Activities')" style="cursor:pointer;"><span>View Full Screen</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Event Stationery — Programme Guide</p>
-            <p class="project-title">50th Anniversary — Programme of Activities</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Event Stationery — Programme Guide</p><p class="project-title">50th Anniversary — Programme of Activities</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('birthday-tags.jpg') center/cover;">
-            <div class="project-overlay"><span>View Birthday Tags</span></div>
+          <div class="project-thumb" style="background:url('birthday-tags.jpg') center/cover;">
+            <div class="project-overlay" onclick="viewImage('birthday-tags.jpg','80th Birthday — Thank You Tags')" style="cursor:pointer;"><span>View Full Screen</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Souvenir &amp; Graphic Design</p>
-            <p class="project-title">80th Birthday — Thank You Tags</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Souvenir &amp; Graphic Design</p><p class="project-title">80th Birthday — Thank You Tags</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('anniversary-tags.jpg') center/cover;">
-            <div class="project-overlay"><span>View Anniversary Tags</span></div>
+          <div class="project-thumb" style="background:url('anniversary-tags.jpg') center/cover;">
+            <div class="project-overlay" onclick="viewImage('anniversary-tags.jpg','Sariaya Institute — Golden Celebration Tags')" style="cursor:pointer;"><span>View Full Screen</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Branding &amp; Souvenir Design</p>
-            <p class="project-title">Sariaya Institute — Golden Celebration Tags</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Branding &amp; Souvenir Design</p><p class="project-title">Sariaya Institute — Golden Celebration Tags</p></div>
         </div>
-
         <div class="project-card fade-up" data-category="stationery">
-          <div class="project-thumb" style="background: url('table-reservation.jpg') center/cover;">
-            <div class="project-overlay"><span>View Table Card</span></div>
+          <div class="project-thumb" style="background:url('table-reservation.jpg') center/cover;">
+            <div class="project-overlay" onclick="viewImage('table-reservation.jpg','Floral Table Reservation Card Design')" style="cursor:pointer;"><span>View Full Screen</span></div>
           </div>
-          <div class="project-info">
-            <p class="project-cat">Event Stationery — Special Events</p>
-            <p class="project-title">Floral Table Reservation Card Design</p>
-          </div>
+          <div class="project-info"><p class="project-cat">Event Stationery — Special Events</p><p class="project-title">Floral Table Reservation Card Design</p></div>
         </div>
-
       </div>
     </div>
   </section>
-
-  <!-- ========== RESUME ========== -->
   <section id="resume">
     <div class="container">
       <h2 class="section-title fade-up">Resume</h2>
       <p class="section-subtitle fade-up">My background, education, and experience.</p>
-
       <div class="resume-layout">
         <div class="resume-col fade-up fade-up-delay-1">
           <div class="resume-block">
@@ -337,7 +196,6 @@
               <p class="resume-item-desc">Graduated with a focus on software development and UI/UX design. Led design work for multiple school and community projects.</p>
             </div>
           </div>
-
           <div class="resume-block">
             <h3 class="resume-block-title"><i class="fa-solid fa-briefcase"></i> Experience</h3>
             <div class="resume-item">
@@ -352,7 +210,6 @@
             </div>
           </div>
         </div>
-
         <div class="resume-col fade-up fade-up-delay-2">
           <div class="resume-block">
             <h3 class="resume-block-title"><i class="fa-solid fa-trophy"></i> Achievements</h3>
@@ -367,100 +224,45 @@
           </div>
         </div>
       </div>
-
       <div class="resume-download-wrap fade-up">
-        <a href="jea-edrieza-resume.pdf" download class="btn-download-resume">
-          <i class="fa-solid fa-file-arrow-down"></i> Download Full Resume
-        </a>
+        <a href="jea-edrieza-resume.pdf" download class="btn-download-resume"><i class="fa-solid fa-file-arrow-down"></i> Download Full Resume</a>
       </div>
     </div>
   </section>
-
-  <!-- ========== CONTACT ========== -->
   <section id="contact">
     <div class="container">
       <h2 class="section-title fade-up">Get In Touch</h2>
       <p class="section-subtitle fade-up">I'd love to connect — whether it's about a project, an opportunity, or just to say hello.</p>
-
       <div class="contact-grid contact-grid--centered">
         <div class="contact-info">
-          <a href="mailto:jeaedrieza@gmail.com" class="contact-item fade-up">
-            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <p class="contact-label">Email</p>
-              <p class="contact-value">jeaedrieza@gmail.com</p>
-            </div>
-          </a>
-          <a href="https://www.facebook.com/jea.edrieza" target="_blank" rel="noopener" class="contact-item fade-up">
-            <div class="contact-icon"><i class="fa-brands fa-facebook-f"></i></div>
-            <div>
-              <p class="contact-label">Facebook</p>
-              <p class="contact-value">facebook.com/jea.edrieza</p>
-            </div>
-          </a>
-          <a href="https://github.com/jeaedrieza" target="_blank" rel="noopener" class="contact-item fade-up">
-            <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
-            <div>
-              <p class="contact-label">GitHub</p>
-              <p class="contact-value">github.com/jeaedrieza</p>
-            </div>
-          </a>
-          <a href="https://www.linkedin.com/in/jeaedrieza" target="_blank" rel="noopener" class="contact-item fade-up">
-            <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
-            <div>
-              <p class="contact-label">LinkedIn</p>
-              <p class="contact-value">linkedin.com/in/jeaedrieza</p>
-            </div>
-          </a>
-          <a href="https://www.behance.net/jeaedrieza" target="_blank" rel="noopener" class="contact-item fade-up">
-            <div class="contact-icon"><i class="fa-brands fa-behance"></i></div>
-            <div>
-              <p class="contact-label">Behance</p>
-              <p class="contact-value">behance.net/jeaedrieza</p>
-            </div>
-          </a>
-          <div class="contact-item fade-up">
-            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-              <p class="contact-label">Location</p>
-              <p class="contact-value">Tayabas, Quezon, Philippines</p>
-            </div>
-          </div>
+          <a href="mailto:jeaedrieza.design@gmail.com" class="contact-item fade-up"><div class="contact-icon"><i class="fa-solid fa-envelope"></i></div><div><p class="contact-label">Email</p><p class="contact-value">jeaedrieza.design@gmail.com</p></div></a>
+          <a href="https://www.facebook.com/jea.edrieza" target="_blank" rel="noopener" class="contact-item fade-up"><div class="contact-icon"><i class="fa-brands fa-facebook-f"></i></div><div><p class="contact-label">Facebook</p><p class="contact-value">facebook.com/jea.edrieza</p></div></a>
+          <a href="https://github.com/jeaedrieza" target="_blank" rel="noopener" class="contact-item fade-up"><div class="contact-icon"><i class="fa-brands fa-github"></i></div><div><p class="contact-label">GitHub</p><p class="contact-value">github.com/jeaedrieza</p></div></a>
+          <a href="https://www.linkedin.com/in/jeaedrieza" target="_blank" rel="noopener" class="contact-item fade-up"><div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div><div><p class="contact-label">LinkedIn</p><p class="contact-value">linkedin.com/in/jeaedrieza</p></div></a>
+          <a href="https://www.behance.net/jea-edrieza" target="_blank" rel="noopener" class="contact-item fade-up"><div class="contact-icon"><i class="fa-brands fa-behance"></i></div><div><p class="contact-label">Behance</p><p class="contact-value">behance.net/jeaedrieza</p></div></a>
+          <div class="contact-item fade-up"><div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div><div><p class="contact-label">Location</p><p class="contact-value">Tayabas, Quezon, Philippines</p></div></div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ========== FOOTER ========== -->
   <footer>
     <div class="footer-inner">
       <p class="footer-name">Jea Edrieza</p>
       <p class="footer-tagline">Designing with heart. Building with purpose.</p>
-      <nav class="footer-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#resume">Resume</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <p class="footer-copy">© 2025 Jea Edrieza. All rights reserved.</p>
+      <nav class="footer-links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#resume">Resume</a><a href="#contact">Contact</a></nav>
+      <p class="footer-copy">&copy; 2025 Jea Edrieza. All rights reserved.</p>
     </div>
   </footer>
-
-  <!-- ========== PROJECT MODAL ========== -->
   <div class="project-modal" id="projectModal">
     <div class="modal-content">
       <button class="modal-close" onclick="closeProject()" aria-label="Close">&times;</button>
       <p class="modal-title" id="modalTitle"></p>
-      <div class="modal-embed">
-        <iframe id="modalIframe" src="" allowfullscreen></iframe>
-      </div>
+      <div class="modal-embed"><iframe id="modalIframe" src="" allowfullscreen></iframe></div>
     </div>
   </div>
-
-  <!-- ========== GALLERY MODAL ========== -->
   <div class="gallery-modal" id="galleryModal">
     <button class="gallery-close" onclick="closeGallery()" aria-label="Close">&times;</button>
-    <p class="gallery-title" id="galleryTitle">VTour — Cultural Heritage of Tayabas City</p>
+    <p class="gallery-title" id="galleryTitle"></p>
     <p class="gallery-counter" id="galleryCounter"></p>
     <div class="gallery-img-wrap">
       <button class="gallery-nav gallery-prev" id="galleryPrev" onclick="galleryNav(-1)" aria-label="Previous">&#8249;</button>
@@ -469,179 +271,9 @@
     </div>
     <p class="gallery-caption" id="galleryCaption"></p>
   </div>
-
-  <!-- ========== SCRIPTS ========== -->
   <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-    function closeMobileMenu() {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-    }
-
-    const fadeEls = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    fadeEls.forEach(el => observer.observe(el));
-
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        projectCards.forEach(card => {
-          if (filter === 'all' || card.dataset.category === filter) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      });
-    });
-
-    function openProject(src, title) {
-      document.getElementById('modalTitle').textContent = title || '';
-      document.getElementById('modalIframe').src = src || '';
-      document.getElementById('projectModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeProject() {
-      document.getElementById('projectModal').classList.remove('active');
-      document.getElementById('modalIframe').src = '';
-      document.body.style.overflow = '';
-    }
-    document.getElementById('projectModal').addEventListener('click', function(e) {
-      if (e.target === this) closeProject();
-    });
-
-    const vtourImages = [
-      { src: 'vtour/vtour-01.jpg', caption: '01 — VTour Home Screen' },
-      { src: 'vtour/vtour-02.jpg', caption: '02 — Heritage Site Selection' },
-      { src: 'vtour/vtour-03.jpg', caption: '03 — VR Panorama View' },
-      { src: 'vtour/vtour-04.jpg', caption: '04 — Cultural Info Panel' },
-      { src: 'vtour/vtour-05.jpg', caption: '05 — Navigation Map' }
-    ];
-    const vimelImages = [
-      { src: '01-loading-screen.jpg', caption: '01 — Loading Screen' },
-      { src: '02-main-page.jpg', caption: '02 — Main Page' },
-      { src: '03-about-page.jpg', caption: '03 — About Page' },
-      { src: '04-destinations.jpg', caption: '04 — Destinations' },
-      { src: '05-destination-detail.jpg', caption: '05 — Destination Detail' },
-      { src: '06-tour-packages.jpg', caption: '06 — Tour Packages' },
-      { src: '07-package-detail.jpg', caption: '07 — Package Detail' },
-      { src: '08-gallery.jpg', caption: '08 — Gallery' },
-      { src: '09-gallery-lightbox.jpg', caption: '09 — Gallery Lightbox' },
-      { src: '10-testimonials.jpg', caption: '10 — Testimonials' },
-      { src: '11-contact-page.jpg', caption: '11 — Contact Page' },
-      { src: '12-booking-form.jpg', caption: '12 — Booking Form' },
-      { src: '13-faq.jpg', caption: '13 — FAQ' },
-      { src: '14-blog.jpg', caption: '14 — Blog' },
-      { src: '15-blog-post.jpg', caption: '15 — Blog Post' },
-      { src: '16-search.jpg', caption: '16 — Search' },
-      { src: '17-mobile-nav.jpg', caption: '17 — Mobile Nav' },
-      { src: '18-mobile-hero.jpg', caption: '18 — Mobile Hero' },
-      { src: '19-mobile-gallery.jpg', caption: '19 — Mobile Gallery' },
-      { src: '20-footer.jpg', caption: '20 — Footer' }
-    ];
-
-    let currentGallery = [];
-    let currentGalleryIndex = 0;
-
-    function openGallery() {
-      currentGallery = vtourImages;
-      currentGalleryIndex = 0;
-      document.getElementById('galleryTitle').textContent = 'VTour — Cultural Heritage of Tayabas City';
-      showGalleryImage();
-      document.getElementById('galleryModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function openVimelGallery() {
-      currentGallery = vimelImages;
-      currentGalleryIndex = 0;
-      document.getElementById('galleryTitle').textContent = 'Vimel Travels — Website Screenshots';
-      showGalleryImage();
-      document.getElementById('galleryModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function openVimelLogo() {
-      currentGallery = [{ src: 'vimel-logo.png', caption: 'Vimel Travels — Logo Design' }];
-      currentGalleryIndex = 0;
-      document.getElementById('galleryTitle').textContent = 'Vimel Travels — Logo Design';
-      showGalleryImage();
-      document.getElementById('galleryModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeGallery() {
-      document.getElementById('galleryModal').classList.remove('active');
-      document.getElementById('galleryImg').src = '';
-      document.body.style.overflow = '';
-    }
-    function showGalleryImage() {
-      const img = currentGallery[currentGalleryIndex];
-      document.getElementById('galleryImg').src = img.src;
-      document.getElementById('galleryCaption').textContent = img.caption;
-      document.getElementById('galleryCounter').textContent =
-        (currentGalleryIndex + 1) + ' / ' + currentGallery.length;
-    }
-    function galleryNav(dir) {
-      currentGalleryIndex = (currentGalleryIndex + dir + currentGallery.length) % currentGallery.length;
-      showGalleryImage();
-    }
-    document.addEventListener('keydown', (e) => {
-      const modal = document.getElementById('galleryModal');
-      if (!modal.classList.contains('active')) return;
-      if (e.key === 'ArrowLeft') galleryNav(-1);
-      if (e.key === 'ArrowRight') galleryNav(1);
-      if (e.key === 'Escape') closeGallery();
-    });
-    document.getElementById('galleryModal').addEventListener('click', function(e) {
-      if (e.target === this) closeGallery();
-    });
-
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    if (localStorage.getItem('theme') === 'dark') {
-      body.classList.add('dark');
-    }
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
-    });
-
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const cx = rect.width / 2;
-        const cy = rect.height / 2;
-        const rotX = ((y - cy) / cy) * -5;
-        const rotY = ((x - cx) / cx) * 5;
-        card.style.transform = `perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
-    });
+    const navbar=document.getElementById('navbar');window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>50)});const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open')});function closeMobileMenu(){hamburger.classList.remove('open');mobileMenu.classList.remove('open')}const fadeEls=document.querySelectorAll('.fade-up');const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:0.12});fadeEls.forEach(el=>observer.observe(el));const filterBtns=document.querySelectorAll('.filter-btn');const projectCards=document.querySelectorAll('.project-card');filterBtns.forEach(btn=>{btn.addEventListener('click',()=>{filterBtns.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const filter=btn.dataset.filter;projectCards.forEach(card=>{if(filter==='all'||card.dataset.category===filter){card.classList.remove('hidden')}else{card.classList.add('hidden')}})})});function openProject(src,title){document.getElementById('modalTitle').textContent=title||'';document.getElementById('modalIframe').src=src||'';document.getElementById('projectModal').classList.add('active');document.body.style.overflow='hidden'}function closeProject(){document.getElementById('projectModal').classList.remove('active');document.getElementById('modalIframe').src='';document.body.style.overflow=''}document.getElementById('projectModal').addEventListener('click',function(e){if(e.target===this)closeProject()});const vtourImages=[{src:'vtour main page.png',caption:'VTour — Main Page'},{src:'vtour part 1.png',caption:'VTour — Part 1'},{src:'vtour part 2.png',caption:'VTour — Part 2'},{src:'vtour part 3.png',caption:'VTour — Part 3'},{src:'vtour part 4.png',caption:'VTour — Part 4'},{src:'vtour part 5.png',caption:'VTour — Part 5'},{src:'vtour part 6.png',caption:'VTour — Part 6'},{src:'vtour part 7.png',caption:'VTour — Part 7'},{src:'vtour part 8.png',caption:'VTour — Part 8'},{src:'vtour part 9.png',caption:'VTour — Part 9'},{src:'vtour part 10.png',caption:'VTour — Part 10'}];const vimelImages=[{src:'01-loading-screen.jpg',caption:'01 — Loading Screen'},{src:'02-main-page.jpg',caption:'02 — Main Page'},{src:'03-recommended-for-you.jpg',caption:'03 — Recommended for You'},{src:'04-browse-by-country.jpg',caption:'04 — Browse by Country'},{src:'05-book-verified-vehicle.jpg',caption:'05 — Book Verified Vehicle'},{src:'06-book-perfect-stay.jpg',caption:'06 — Book Perfect Stay'},{src:'07-how-it-works.jpg',caption:'07 — How It Works'},{src:'08-about-us.jpg',caption:'08 — About Us'},{src:'09-travel-blog.jpg',caption:'09 — Travel Blog'},{src:'10-travel-experience.jpg',caption:'10 — Travel Experience'},{src:'11-currency-converter.jpg',caption:'11 — Currency Converter'},{src:'12-destination-weather.jpg',caption:'12 — Destination Weather'},{src:'13-postcards.jpg',caption:'13 — Postcards'},{src:'14-destination-quiz.jpg',caption:'14 — Destination Quiz'},{src:'15-travel-checklist.jpg',caption:'15 — Travel Checklist'},{src:'16-faq.jpg',caption:'16 — FAQ'},{src:'17-safety-first part 1.jpg',caption:'17 — Safety First (Part 1)'},{src:'17-safety-first part 2.jpg',caption:'17 — Safety First (Part 2)'},{src:'18-planner.jpg',caption:'18 — Planner'},{src:'19-contact-us.jpg',caption:'19 — Contact Us'}];let currentGallery=[];let currentGalleryIndex=0;function openGallery(){currentGallery=vtourImages;currentGalleryIndex=0;document.getElementById('galleryTitle').textContent='VTour — Cultural Heritage of Tayabas City';showGalleryImage();document.getElementById('galleryModal').classList.add('active');document.body.style.overflow='hidden'}function openVimelGallery(){currentGallery=vimelImages;currentGalleryIndex=0;document.getElementById('galleryTitle').textContent='Vimel Travels — Website Screenshots';showGalleryImage();document.getElementById('galleryModal').classList.add('active');document.body.style.overflow='hidden'}function openVimelLogo(){currentGallery=[{src:'vimel-logo.png',caption:'Vimel Travels — Logo Design'}];currentGalleryIndex=0;document.getElementById('galleryTitle').textContent='Vimel Travels — Logo Design';showGalleryImage();document.getElementById('galleryModal').classList.add('active');document.body.style.overflow='hidden'}function viewImage(src,title){currentGallery=[{src:src,caption:title}];currentGalleryIndex=0;document.getElementById('galleryTitle').textContent=title;showGalleryImage();document.getElementById('galleryModal').classList.add('active');document.body.style.overflow='hidden'}function closeGallery(){document.getElementById('galleryModal').classList.remove('active');document.getElementById('galleryImg').src='';document.body.style.overflow=''}function showGalleryImage(){const img=currentGallery[currentGalleryIndex];document.getElementById('galleryImg').src=img.src;document.getElementById('galleryCaption').textContent=img.caption;const counter=document.getElementById('galleryCounter');if(currentGallery.length>1){counter.textContent=(currentGalleryIndex+1)+' / '+currentGallery.length;counter.style.display='';document.getElementById('galleryPrev').style.display='';document.getElementById('galleryNext').style.display=''}else{counter.style.display='none';document.getElementById('galleryPrev').style.display='none';document.getElementById('galleryNext').style.display='none'}}function galleryNav(dir){currentGalleryIndex=(currentGalleryIndex+dir+currentGallery.length)%currentGallery.length;showGalleryImage()}document.addEventListener('keydown',(e)=>{const modal=document.getElementById('galleryModal');if(!modal.classList.contains('active'))return;if(e.key==='ArrowLeft')galleryNav(-1);if(e.key==='ArrowRight')galleryNav(1);if(e.key==='Escape')closeGallery()});document.getElementById('galleryModal').addEventListener('click',function(e){if(e.target===this)closeGallery()});const themeToggle=document.getElementById('themeToggle');const body=document.body;if(localStorage.getItem('theme')==='dark'){body.classList.add('dark')}themeToggle.addEventListener('click',()=>{body.classList.toggle('dark');localStorage.setItem('theme',body.classList.contains('dark')?'dark':'light')});document.querySelectorAll('.project-card').forEach(card=>{card.addEventListener('mousemove',(e)=>{const rect=card.getBoundingClientRect();const x=e.clientX-rect.left;const y=e.clientY-rect.top;const cx=rect.width/2;const cy=rect.height/2;const rotX=((y-cy)/cy)*-5;const rotY=((x-cx)/cx)*5;card.style.transform=`perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`});card.addEventListener('mouseleave',()=>{card.style.transform=''})});
   </script>
-
   <script src="particles.js" defer></script>
 </body>
 </html>
