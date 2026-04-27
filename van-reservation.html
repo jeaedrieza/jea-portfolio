@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Van Reservation — Case Study | Jea Edrieza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --color-primary:     #8B5CF6;
+      --color-primary-dk:  #7C3AED;
+      --color-primary-lt:  #EDE9FE;
+      --color-accent:      #F9A8D4;
+      --color-white:       #FFFFFF;
+      --color-bg:          #FAFAFA;
+      --color-text-dark:   #1E1B4B;
+      --color-text-mid:    #6B7280;
+      --color-text-light:  #9CA3AF;
+      --color-border:      #E8E8ED;
+      --radius:            16px;
+      --radius-pill:       999px;
+      --font:              'Inter', sans-serif;
+      --transition:        0.3s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font); color: var(--color-text-dark); background: var(--color-bg); line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ========== BACK NAV ========== */
+    .case-nav {
+      position: fixed; top: 0; left: 0; width: 100%; height: 64px;
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border); z-index: 100;
+      display: flex; align-items: center; padding: 0 24px;
+    }
+    .case-nav-inner {
+      max-width: 760px; margin: 0 auto; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.88rem; font-weight: 500; color: var(--color-text-mid);
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--color-primary); }
+    .back-link i { font-size: 0.75rem; transition: transform var(--transition); }
+    .back-link:hover i { transform: translateX(-3px); }
+    .case-nav-name { font-size: 0.85rem; font-weight: 600; color: var(--color-text-light); }
+
+    /* ========== HERO ========== */
+    .case-hero {
+      padding: 140px 24px 80px; text-align: center;
+      background: linear-gradient(135deg, #1E1B4B 0%, #312E81 40%, #4C1D95 70%, #6D28D9 100%);
+      position: relative; overflow: hidden;
+    }
+    .case-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(139,92,246,0.2) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 80%, rgba(249,168,212,0.15) 0%, transparent 50%);
+    }
+    .case-hero-cat {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); margin-bottom: 16px; position: relative; z-index: 1;
+    }
+    .case-hero-title {
+      font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; letter-spacing: -1.5px;
+      color: #ffffff; line-height: 1.15; margin-bottom: 16px; position: relative; z-index: 1;
+    }
+    .case-hero-desc {
+      font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 300; color: rgba(255,255,255,0.55);
+      max-width: 560px; margin: 0 auto; line-height: 1.7; position: relative; z-index: 1;
+    }
+    .case-meta {
+      display: flex; justify-content: center; gap: 40px; margin-top: 36px;
+      position: relative; z-index: 1;
+    }
+    .case-meta-item { text-align: center; }
+    .case-meta-label {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); margin-bottom: 4px;
+    }
+    .case-meta-value { font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.8); }
+
+    /* ========== CONTENT ========== */
+    .case-body { max-width: 760px; margin: 0 auto; padding: 80px 24px 100px; }
+
+    .case-section { margin-bottom: 64px; }
+    .case-section:last-child { margin-bottom: 0; }
+
+    .case-section h2 {
+      font-size: 1.5rem; font-weight: 800; color: var(--color-text-dark);
+      letter-spacing: -0.3px; margin-bottom: 20px;
+      padding-bottom: 12px; border-bottom: 2px solid var(--color-primary-lt);
+    }
+    .case-section p {
+      font-size: 1rem; color: var(--color-text-mid); line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .case-section p:last-child { margin-bottom: 0; }
+    .case-section p strong { color: var(--color-text-dark); font-weight: 600; }
+    .case-section p em { color: var(--color-primary); font-style: italic; }
+
+    /* Highlight quote */
+    .case-highlight {
+      background: var(--color-primary-lt); border-left: 4px solid var(--color-primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 24px 28px; margin: 28px 0;
+      font-size: 1.05rem; font-weight: 500; color: var(--color-text-dark);
+      line-height: 1.7;
+    }
+
+    /* Feature list */
+    .case-features {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      margin: 24px 0;
+    }
+    .case-feature {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 18px; background: var(--color-white);
+      border: 1px solid var(--color-border); border-radius: 12px;
+      font-size: 0.9rem; font-weight: 500; color: var(--color-text-dark);
+    }
+    .case-feature i { color: var(--color-primary); font-size: 0.85rem; }
+
+    /* User flow steps */
+    .case-flow {
+      display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0;
+      align-items: center;
+    }
+    .case-flow-step {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 18px; background: var(--color-white);
+      border: 1px solid var(--color-border); border-radius: var(--radius-pill);
+      font-size: 0.85rem; font-weight: 600; color: var(--color-text-dark);
+    }
+    .case-flow-step .step-num {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--color-primary); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+    }
+    .case-flow-arrow { color: var(--color-text-light); font-size: 0.85rem; }
+
+    /* Screenshot gallery */
+    .case-screens {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+      margin: 28px 0;
+    }
+    .case-screens.single { grid-template-columns: 1fr; max-width: 375px; margin-left: auto; margin-right: auto; }
+    .case-screen-wrap {
+      background: var(--color-white); border: 1px solid var(--color-border);
+      border-radius: var(--radius); overflow: hidden; padding: 12px;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .case-screen-wrap:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(139,92,246,0.12); }
+    .case-screen-wrap img { border-radius: 10px; width: 100%; }
+    .case-screen-caption {
+      font-size: 0.78rem; font-weight: 500; color: var(--color-text-light);
+      text-align: center; margin-top: 10px; letter-spacing: 0.3px;
+    }
+
+    /* Figma embed */
+    .case-figma-wrap {
+      margin: 28px 0; border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--color-border); background: var(--color-white);
+    }
+    .case-figma-wrap iframe { width: 100%; height: 700px; border: none; display: block; }
+
+    /* Reflection list */
+    .case-reflection-list {
+      list-style: none; margin: 20px 0;
+    }
+    .case-reflection-list li {
+      display: flex; gap: 12px; padding: 12px 0;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.95rem; color: var(--color-text-mid); line-height: 1.7;
+    }
+    .case-reflection-list li:last-child { border-bottom: none; }
+    .case-reflection-list li i { color: var(--color-primary); margin-top: 5px; flex-shrink: 0; }
+
+    /* CTA */
+    .case-cta {
+      text-align: center; padding: 80px 24px;
+      background: linear-gradient(135deg, #1E1B4B, #312E81);
+    }
+    .case-cta p {
+      font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-bottom: 8px;
+    }
+    .case-cta span { font-size: 0.95rem; color: rgba(255,255,255,0.5); }
+    .case-cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-top: 28px; padding: 14px 36px;
+      border: 1.5px solid rgba(255,255,255,0.3); border-radius: var(--radius-pill);
+      color: rgba(255,255,255,0.8); font-family: var(--font);
+      font-size: 0.9rem; font-weight: 500; transition: all var(--transition);
+    }
+    .case-cta-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); color: #fff; }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 600px) {
+      .case-hero { padding: 120px 20px 60px; }
+      .case-meta { flex-direction: column; gap: 16px; }
+      .case-body { padding: 60px 20px 80px; }
+      .case-features { grid-template-columns: 1fr; }
+      .case-screens { grid-template-columns: 1fr; }
+      .case-flow { flex-direction: column; align-items: flex-start; }
+      .case-flow-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav class="case-nav">
+    <div class="case-nav-inner">
+      <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+      <span class="case-nav-name">Jea Edrieza</span>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="case-hero">
+    <p class="case-hero-cat">UI/UX Design — Thesis Project</p>
+    <h1 class="case-hero-title">Van Reservation<br>Mobile Application</h1>
+    <p class="case-hero-desc">Designing a seamless van booking experience for commuters in Quezon Province — so they can spend less time waiting and more time living.</p>
+    <div class="case-meta">
+      <div class="case-meta-item">
+        <p class="case-meta-label">Role</p>
+        <p class="case-meta-value">UI/UX Designer</p>
+      </div>
+      <div class="case-meta-item">
+        <p class="case-meta-label">Timeline</p>
+        <!-- ✏️ UPDATE THIS with your actual timeline -->
+        <p class="case-meta-value">2024</p>
+      </div>
+      <div class="case-meta-item">
+        <p class="case-meta-label">Tools</p>
+        <p class="case-meta-value">Figma</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BODY ========== -->
+  <div class="case-body">
+
+    <!-- THE PROBLEM -->
+    <div class="case-section">
+      <h2>The Problem</h2>
+      <p>In Quezon Province, vans are a primary mode of transportation. But the system hasn't changed in years — passengers show up at terminals, wait in long queues, and hope there's a seat available. Wait times of 30 minutes to over an hour are common.</p>
+      <p>For students rushing to class, workers on tight schedules, and parents managing their day, that lost time isn't just inconvenient — <strong>it disrupts their entire routine.</strong></p>
+      <p>On top of that, payments inside a packed van are clumsy. Passengers pass cash hand-to-hand to the driver while the vehicle is moving. It's inefficient, error-prone, and uncomfortable.</p>
+      <div class="case-highlight">
+        "What if commuters could reserve a seat and pay before they even leave home?"
+      </div>
+    </div>
+
+    <!-- THE SOLUTION -->
+    <div class="case-section">
+      <h2>The Solution</h2>
+      <p><strong>Van Reservation</strong> is a mobile application that lets commuters browse available routes, choose a schedule, reserve a specific seat, and pay online — all before arriving at the terminal.</p>
+      <div class="case-features">
+        <div class="case-feature"><i class="fa-solid fa-route"></i> Browse van routes & schedules</div>
+        <div class="case-feature"><i class="fa-solid fa-chair"></i> Reserve a specific seat</div>
+        <div class="case-feature"><i class="fa-solid fa-credit-card"></i> Pay online — no cash passing</div>
+        <div class="case-feature"><i class="fa-solid fa-clock"></i> Reduce wait times to minutes</div>
+      </div>
+    </div>
+
+    <!-- DESIGN APPROACH -->
+    <div class="case-section">
+      <h2>Design Approach</h2>
+      <p>I didn't need to conduct formal user research — <strong>I am the user.</strong> Growing up in Quezon Province, I've experienced the van terminal system firsthand. The long waits, the uncertain schedules, the crowded queues. My classmates, family, and co-commuters all shared the same frustrations.</p>
+      <p>The core insight was simple: <strong>people aren't frustrated with vans — they're frustrated with the waiting.</strong> The design needed to do one thing above all else: get users from "I need a ride" to "I have a seat" in as few taps as possible.</p>
+    </div>
+
+    <!-- USER FLOW -->
+    <div class="case-section">
+      <h2>User Flow</h2>
+      <p>Every screen moves the user forward. No unnecessary sign-up walls, no cluttered dashboards — just a clear path from intent to confirmation.</p>
+            <div class="case-flow">
+        <div class="case-flow-step"><span class="step-num">1</span> Home</div>
+        <span class="case-flow-arrow">→</span>
+        <div class="case-flow-step"><span class="step-num">2</span> Select Terminal</div>
+        <span class="case-flow-arrow">→</span>
+        <div class="case-flow-step"><span class="step-num">3</span> Choose Route</div>
+        <span class="case-flow-arrow">→</span>
+        <div class="case-flow-step"><span class="step-num">4</span> Pick a Seat</div>
+        <span class="case-flow-arrow">→</span>
+        <div class="case-flow-step"><span class="step-num">5</span> Pay via GCash</div>
+        <span class="case-flow-arrow">→</span>
+        <div class="case-flow-step"><span class="step-num">6</span> Confirmation</div>
+      </div>
+    </div>
+
+    <!-- KEY SCREENS -->
+    <div class="case-section">
+      <h2>Key Screens</h2>
+      <p>The interface uses a clean, modern layout with clear visual hierarchy. The seat selection screen uses a visual van layout so passengers can pick exactly where they want to sit — making the experience feel tangible, not abstract.</p>
+
+            <div class="case-screens">
+        <div class="case-screen-wrap">
+          <img src="screen-01-home.jpg" alt="Home Screen" />
+          <p class="case-screen-caption">Home — Book a Seat</p>
+        </div>
+        <div class="case-screen-wrap">
+          <img src="screen-02-routes-sm-map.jpg" alt="SM Terminal Routes" />
+          <p class="case-screen-caption">SM Van Terminal — Map & Stations</p>
+        </div>
+        <div class="case-screen-wrap">
+          <img src="screen-03-routes-sm-list.jpg" alt="SM Terminal Destinations" />
+          <p class="case-screen-caption">SM Van Terminal — Destinations</p>
+        </div>
+        <div class="case-screen-wrap">
+          <img src="screen-04-routes-grand-map.jpg" alt="Grand Terminal Routes" />
+          <p class="case-screen-caption">Grand Van Terminal — Map & Stations</p>
+        </div>
+        <div class="case-screen-wrap">
+          <img src="screen-05-routes-grand-list.jpg" alt="Grand Terminal Destinations" />
+          <p class="case-screen-caption">Grand Van Terminal — Destinations</p>
+        </div>
+        <div class="case-screen-wrap">
+          <img src="screen-06-routes-pacific-map.jpg" alt="Pacific Terminal Routes" />
+          <p class="case-screen-caption">Pacific Van Terminal — Map & Stations</p>
+        </div>
+        <div class="case-screen-wrap">
+          <img src="screen-07-routes-pacific-list.jpg" alt="Pacific Terminal Destinations" />
+          <p class="case-screen-caption">Pacific Van Terminal — Destinations</p>
+        </div>
+        <div class="case-screen-wrap">
+          <img src="screen-08-seats.jpg" alt="Seat Selection" />
+          <p class="case-screen-caption">Seat Picker — Van Layout</p>
+        </div>
+        <div class="case-screen-wrap">
+          <img src="screen-09-payment-method.jpg" alt="Payment Method" />
+          <p class="case-screen-caption">Payment Method — GCash</p>
+        </div>
+        <div class="case-screen-wrap">
+          <img src="screen-10-payment-processing.jpg" alt="Payment Processing" />
+          <p class="case-screen-caption">Payment — Confirm & Send</p>
+        </div>
+        <div class="case-screen-wrap">
+          <img src="screen-11-payment-success.jpg" alt="Payment Successful" />
+          <p class="case-screen-caption">Payment Successful</p>
+        </div>
+        <div class="case-screen-wrap">
+          <img src="screen-12-reserved.jpg" alt="Reservation Confirmed" />
+          <p class="case-screen-caption">Reservation Confirmed — Trip Details</p>
+        </div>
+        <div class="case-screen-wrap">
+          <img src="screen-13-email-receipt.jpg" alt="Email Receipt" />
+          <p class="case-screen-caption">Email Receipt Confirmation</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROTOTYPE -->
+    <div class="case-section">
+      <h2>Interactive Prototype</h2>
+      <p>Tap through the full experience below — or <a href="https://www.figma.com/proto/5J4vWuctgWDgKdUGwKeX27/VAN-RESERVATION-MOBILE-APPLICATION?page-id=0%3A1&node-id=1-81&p=f&viewport=28%2C544%2C0.25&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A81&embed-host=share" target="_blank" style="color: var(--color-primary); font-weight: 600;">open it in Figma ↗</a></p>
+      <div class="case-figma-wrap">
+        <iframe src="https://embed.figma.com/proto/5J4vWuctgWDgKdUGwKeX27/VAN-RESERVATION-MOBILE-APPLICATION?page-id=0%3A1&node-id=1-81&p=f&viewport=28%2C544%2C0.25&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A81&embed-host=share" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- REFLECTION -->
+    <div class="case-section">
+      <h2>Reflection</h2>
+      <p>This project taught me that <strong>the best design solutions come from real frustration.</strong> I didn't have to imagine the user's pain — I lived it. That made every design decision clearer because I always had a real "why" behind it.</p>
+      <p>If I had more time, I would:</p>
+      <ul class="case-reflection-list">
+        <li><i class="fa-solid fa-flask"></i> <strong>Conduct usability testing</strong> with actual commuters at the terminal to validate the flow</li>
+        <li><i class="fa-solid fa-users-gear"></i> <strong>Design the driver/operator side</strong> — how do they manage bookings and confirm passengers?</li>
+        <li><i class="fa-solid fa-location-crosshairs"></i> <strong>Add real-time tracking</strong> so passengers know exactly when their van is arriving</li>
+      </ul>
+      <p>This was my first end-to-end UI/UX project, and it showed me that design isn't just about making things look good — <strong>it's about removing friction from people's lives.</strong></p>
+    </div>
+
+  </div>
+
+  <!-- ========== CTA ========== -->
+  <div class="case-cta">
+    <p>Want to work together?</p>
+    <span>I'm available for design opportunities.</span><br>
+    <a href="mailto:jeaedrieza@gmail.com" class="case-cta-btn"><i class="fa-solid fa-envelope"></i> jeaedrieza@gmail.com</a>
+  </div>
+
+</body>
+</html>
